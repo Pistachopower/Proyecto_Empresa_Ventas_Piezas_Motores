@@ -38,9 +38,7 @@ Este modelo entidad-relación está diseñado para gestionar una plataforma de v
    - `nombre`: Nombre del cliente.
    - `apellido`: Apellido del cliente.
    - `correo`: Correo electrónico del cliente.
-   - `empresa`: Indica si el cliente es una empresa.
-   - `particular`: Indica si el cliente es particular.
-   - `tipo_cliente`: Clasificación del cliente (particular o empresa).
+   - `tipo_cliente`  [particular, empresa]: : Clasificación del cliente (particular o empresa).
    - `id_direccion_cliente`: Identificador de la dirección principal del cliente.
 
 5. **MétodoPago**:
