@@ -4,8 +4,6 @@ from django.db import models
 from django.utils import timezone
 # Create your models here.
 
-#FALTA AGREGRAR EN LOS ATRIBUTOS PARAMETROS(null, blank, db_column, primary_key)
-
 
 #tablas independientes
 class Proveedor(models.Model):

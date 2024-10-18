@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'EmpresaVentaPiezasCoche'
+    'EmpresaVentaPiezasCoche',
+    'django_seed',
 ]
 
 MIDDLEWARE = [
@@ -110,7 +111,7 @@ TIME_ZONE = 'Europe/Madrid'
 
 USE_I18N = True
 
-USE_TZ = True
+USE_TZ = False #se cambia a false para que el models.DateTimeField(default=timezone.now) pueda funcionar
 
 
 # Static files (CSS, JavaScript, Images)
