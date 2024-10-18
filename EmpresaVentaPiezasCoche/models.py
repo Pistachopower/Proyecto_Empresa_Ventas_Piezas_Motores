@@ -95,4 +95,4 @@ class PiezaMotor_Pedido(models.Model):
     id_pieza= models.ForeignKey(PiezaMotor, on_delete=models.CASCADE)
     id_pedido= models.ForeignKey(Pedido, on_delete=models.CASCADE)
     cantidad= models.IntegerField(null=True, blank=True) #se pone estos parametros para evitar el el error que no pueda ser nulo el valor
-    precioTotal= models.FloatField()
+    precioTotal= models.FloatField(default=0.0) #se agrega este parametros para evitar error: Internal error: NOT NULL constraint failed
