@@ -137,6 +137,6 @@ Este modelo entidad-relación está diseñado para gestionar una plataforma de v
 
 # Diagrama ER
 
-![Diagrama ER](ruta/a/tu/imagen.png)
+![Diagrama ER](ER_EmpresaPiezaCoches.png)
 
 
