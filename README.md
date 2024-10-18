@@ -11,98 +11,132 @@ Este modelo entidad-relación está diseñado para gestionar una plataforma de v
 
 ## Entidades y Atributos
 
-1. **Proveedor**:
-   - `id_proveedor`: Identificador único del proveedor.
-   - `nombre_proveedor`: Nombre del proveedor.
-   - `teléfono`: Número de contacto del proveedor.
-   - `correo`: Correo electrónico del proveedor.
-   - `dirección`: Dirección física del proveedor.
+## Proveedor
+- **id_proveedor**: Identificador único del proveedor.
+- **nombre_proveedor**: Nombre de la empresa o persona que provee las piezas.
+- **teléfono**: Número de contacto del proveedor.
+- **correo**: Correo electrónico del proveedor.
+- **dirección**: Ubicación física del proveedor.
 
-2. **PiezaMotor**:
-   - `id_pieza`: Identificador único de la pieza.
-   - `nombre`: Nombre de la pieza de motor.
-   - `precio`: Precio de la pieza.
-   - `descripción`: Breve descripción de la pieza.
-   - `stock_disponible`: Cantidad de stock disponible de la pieza.
+## Proveedor_PiezaMotor
+- **id_proveedor**: Identificador del proveedor que suministra la pieza.
+- **id_pieza**: Identificador de la pieza suministrada.
 
-3. **Pedido**:
-   - `id_pedido`: Identificador único del pedido.
-   - `id_metodo_pago`: Referencia al método de pago utilizado en el pedido.
-   - `id_cliente_pedido`: Identificador del cliente que realiza el pedido.
-   - `fecha_pedido`: Fecha en la que se realizó el pedido.
-   - `total_importe`: Importe total del pedido.
-   - `estado`: Estado actual del pedido (pendiente, enviado, entregado).
+## PiezaMotor
+- **id_pieza**: Identificador único de la pieza de motor.
+- **nombre**: Nombre o descripción de la pieza.
+- **precio**: Precio de la pieza.
+- **descripción**: Descripción detallada de la pieza.
+- **stock_disponible**: Cantidad disponible en inventario.
 
-4. **Cliente**:
-   - `id_cliente`: Identificador único del cliente.
-   - `nombre`: Nombre del cliente.
-   - `apellido`: Apellido del cliente.
-   - `correo`: Correo electrónico del cliente.
-   - `tipo_cliente`  [particular, empresa]: : Clasificación del cliente (particular o empresa).
-   - `id_direccion_cliente`: Identificador de la dirección principal del cliente.
+## Proveedor_Pedido
+- **id_proveedor**: Relación con el proveedor que atiende el pedido.
+- **id_pedido**: Relación con el pedido específico.
 
-5. **MétodoPago**:
-   - `id_metodo_pago`: Identificador único del método de pago.
-   - `nombre`: Nombre del método de pago.
-   - `tipo_pago`: Tipo de método de pago (por ejemplo, tarjeta de crédito, transferencia bancaria, etc.).
+## Pedido
+- **id_pedido**: Identificador único del pedido.
+- **id_metodo_pago**: Método de pago utilizado para el pedido.
+- **id_cliente_pedido**: Cliente que realiza el pedido.
+- **fecha_pedido**: Fecha en que se realiza el pedido.
+- **total_importe**: Importe total del pedido.
+- **estado**: Estado actual del pedido (pendiente, enviado, entregado).
 
-6. **Empleado**:
-   - `id_empleado`: Identificador único del empleado.
-   - `id_empresa_empleado`: Identificador de la empresa a la que pertenece el empleado.
-   - `nombre`: Nombre del empleado.
-   - `apellido`: Apellido del empleado.
-   - `cargo`: Cargo del empleado dentro de la empresa.
+## MétodoPago
+- **id_metodo_pago**: Identificador único del método de pago.
+- **nombre**: Nombre del método de pago (por ejemplo, tarjeta, PayPal).
+- **tipo_pago**: Tipo de método de pago.
+- **fecha_Creacion**: Fecha de creación del método de pago.
+- **fecha_Ultima_Creacion**: Fecha de la última actualización.
 
-7. **Empresa**:
-   - `id_empresa`: Identificador único de la empresa.
-   - `nombre`: Nombre de la empresa.
-   - `teléfono`: Número de contacto de la empresa.
-   - `dirección`: Dirección de la empresa.
+## Cliente
+- **id_cliente**: Identificador único del cliente.
+- **nombre**: Nombre del cliente.
+- **apellido**: Apellido del cliente.
+- **correo**: Correo electrónico del cliente.
+- **TIPO_CLIENTE**: Especifica si es un cliente particular, empresa, o dirección.
 
-8. **Provincia**:
-   - `id_Provincia`: Identificador único de la provincia.
-   - `nombre`: Nombre de la provincia.
-   - `comunidad`: Comunidad autónoma a la que pertenece la provincia.
-   - `num_habitantes`: Número de habitantes de la provincia.
+## DirecciónPrincipal
+- **id_direccion**: Identificador único de la dirección.
+- **id_cliente**: Cliente al que pertenece la dirección.
+- **id_Provincia**: Relación con la provincia de la dirección.
+- **calle**: Calle de la dirección.
+- **provincia**: Provincia de la dirección.
+- **código_postal**: Código postal correspondiente.
 
-9. **DireccionPrincipal**:
-   - `id_direccion`: Identificador único de la dirección.
-   - `id_cliente`: Identificador del cliente al que pertenece la dirección.
-   - `id_Provincia`: Provincia donde está ubicada la dirección.
-   - `id_Empresa`: Empresa a la que pertenece la dirección (si aplica).
-   - `calle`: Calle donde se encuentra la dirección.
-   - `provincia`: Provincia de la dirección.
-   - `codigo_postal`: Código postal de la dirección.
+## Provincia
+- **id_Provincia**: Identificador único de la provincia.
+- **nombre**: Nombre de la provincia.
+- **comunidad**: Comunidad autónoma a la que pertenece la provincia.
+- **num_habitantes**: Número de habitantes de la provincia.
+
+## Empleado
+- **id_empleado**: Identificador único del empleado.
+- **id_empresa_empleado**: Empresa para la que trabaja el empleado.
+- **nombre**: Nombre del empleado.
+- **apellido**: Apellido del empleado.
+- **cargo**: Cargo que ocupa en la empresa.
+- **fecha_Contratacion**: Fecha de contratación del empleado.
+
+## Empresa
+- **id_empresa**: Identificador único de la empresa.
+- **nombre**: Nombre de la empresa.
+- **teléfono**: Teléfono de contacto de la empresa.
+- **dirección**: Dirección de la sede principal de la empresa.
+- **email_contacto**: Correo de contacto.
 
 ## Relaciones y Cardinalidades
 
-1. **Proveedor - PiezaMotor (N:M)**:
-   - Un proveedor puede proporcionar múltiples piezas de motor, y una pieza de motor puede ser ofrecida por varios proveedores. Por ello, se establece una relación N:M con la tabla intermedia `Proveedor_PiezaMotor`.
-   
-2. **PiezaMotor - Pedido (N:M)**:
-   - Un pedido puede contener varias piezas, y una misma pieza puede estar en múltiples pedidos. Por lo tanto, se implementa una relación N:M con la tabla intermedia `PiezaMotor_Pedido`.
-   
-3. **Proveedor - Pedido (N:M)**:
-   - Se agregó una relación muchos a muchos para reflejar que un pedido puede involucrar productos de múltiples proveedores, y un proveedor puede estar relacionado con varios pedidos a través de la tabla intermedia `Proveedor_Pedido`.
+1. **Proveedor - PiezaMotor (N:M)**:  
+   Un proveedor puede suministrar muchas piezas de motor, y una pieza de motor puede ser suministrada por varios proveedores.
 
-4. **Pedido - Cliente (N:1)**:
-   - Cada pedido está asociado a un único cliente, pero un cliente puede realizar múltiples pedidos. Por ello, se establece una relación de N:1.
-   
-5. **Pedido - MétodoPago (N:1)**:
-   - Un pedido puede tener un único método de pago, pero el mismo método puede ser utilizado en múltiples pedidos, por lo que se establece una relación N:1.
-   
-6. **Cliente - DireccionPrincipal (1:1)**:
-   - Cada cliente tiene una única dirección principal asociada, lo cual se refleja mediante una relación 1:1 con `DireccionPrincipal`. Sin embargo, esta relación podría evolucionar a 1:N si un cliente llegara a tener varias direcciones.
+2. **PiezaMotor - Pedido (N:M)**:  
+   Un pedido puede contener varias piezas de motor, y una pieza de motor puede estar en varios pedidos.
 
-7. **Empleado - Empresa (N:1)**:
-   - Un empleado pertenece a una única empresa, pero una empresa puede tener múltiples empleados. Esto se refleja con una relación N:1.
+3. **Proveedor - Pedido (N:M)**:  
+   Un proveedor puede suministrar piezas para varios pedidos, y un pedido puede requerir productos de diferentes proveedores.
+
+4. **Cliente - Pedido (N:1)**:  
+   Un cliente puede realizar muchos pedidos, pero un pedido es realizado por un solo cliente.
+
+5. **MétodoPago - Pedido (N:1)**:  
+   Muchos pedidos pueden ser realizados con un mismo método de pago, pero cada pedido utiliza solo un método de pago.
+
+6. **Provincia - DirecciónPrincipal (N:1)**:  
+   Muchas direcciones pueden estar ubicadas en una provincia, pero cada dirección solo pertenece a una provincia.
+
+7. **Cliente - DirecciónPrincipal (1:1)**:  
+   Cada cliente tiene una dirección principal, y una dirección principal pertenece a un solo cliente.
+
+8. **Empleado - Empresa (N:1)**:  
+   Muchos empleados pueden trabajar en una empresa, pero cada empleado trabaja para una sola empresa.
+
+9. **Empresa - Empleado (1:N)**:  
+   Una empresa puede emplear a muchos empleados, pero cada empleado trabaja para una sola empresa.
 
 ## Justificación de las Relaciones
 
-- Las relaciones N:M entre `Proveedor-PiezaMotor`, `PiezaMotor-Pedido`, y `Proveedor-Pedido` son esenciales para capturar la naturaleza multi-asociativa del sistema. Esto asegura que múltiples proveedores puedan surtir las mismas piezas o pedidos, y que los pedidos puedan involucrar productos de múltiples proveedores.
-- Las relaciones N:1 para `Cliente-Pedido` y `Pedido-MétodoPago` son consistentes con la lógica de negocio en la que cada cliente realiza un pedido individualmente y cada pedido tiene un método de pago.
-- La relación 1:1 entre `Cliente` y `DireccionPrincipal` ayuda a simplificar la gestión de direcciones, garantizando que un cliente solo tenga una dirección principal registrada.
+### Relaciones N:M
+- **Proveedor - PiezaMotor**: Esta relación permite modelar que un proveedor puede suministrar diversas piezas de motor, y a su vez, una pieza puede ser provista por distintos proveedores. Esto es esencial en un sistema donde se manejan múltiples opciones de proveedores para optimizar costos o disponibilidad de productos.
+  
+- **PiezaMotor - Pedido**: La relación muchos a muchos entre estas tablas es necesaria porque un pedido puede incluir varias piezas, y una pieza puede estar asociada a múltiples pedidos diferentes a lo largo del tiempo. Esto refleja la realidad de un sistema de pedidos donde las piezas son productos recurrentes.
 
-Este diseño asegura flexibilidad y escalabilidad, facilitando el seguimiento de las piezas, proveedores, pedidos y clientes en la plataforma de venta.
+- **Proveedor - Pedido**: Es necesario modelar la relación entre proveedores y pedidos de forma N:M porque un pedido puede requerir productos de diferentes proveedores, y un proveedor puede estar asociado con múltiples pedidos, lo que es común en un sistema de logística y distribución.
+
+### Relaciones N:1
+- **Cliente - Pedido**: La relación muchos a uno refleja que un cliente puede realizar muchos pedidos, pero cada pedido está asociado únicamente a un cliente. Esto es lógico en términos comerciales donde un pedido tiene un responsable (cliente) definido.
+
+- **MétodoPago - Pedido**: Cada pedido utiliza un solo método de pago, pero un método de pago puede ser utilizado en múltiples pedidos. Esto refleja la realidad de cualquier sistema de ventas donde los clientes pueden utilizar un mismo método para varias transacciones.
+
+- **Provincia - DirecciónPrincipal**: Una dirección está en una sola provincia, pero muchas direcciones pueden estar en la misma provincia. Este diseño permite gestionar las ubicaciones geográficas de manera estructurada y lógica.
+
+- **Empleado - Empresa**: La relación muchos a uno entre empleado y empresa es necesaria porque cada empleado trabaja para una sola empresa, aunque una empresa puede tener varios empleados. Este es un reflejo directo de la estructura organizativa de las empresas.
+
+### Relaciones 1:1
+- **Cliente - DirecciónPrincipal**: Cada cliente tiene una única dirección principal, lo que garantiza que haya una correspondencia directa entre los datos de cliente y su dirección principal registrada en el sistema.
+
+
+# Diagrama ER
+
+![Diagrama ER](ruta/a/tu/imagen.png)
 
 
