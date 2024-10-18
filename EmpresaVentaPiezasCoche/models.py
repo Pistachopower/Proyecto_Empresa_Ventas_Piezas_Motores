@@ -94,5 +94,5 @@ class PiezaMotor(models.Model):
 class PiezaMotor_Pedido(models.Model):
     id_pieza= models.ForeignKey(PiezaMotor, on_delete=models.CASCADE)
     id_pedido= models.ForeignKey(Pedido, on_delete=models.CASCADE)
-    cantidad= models.IntegerField()
+    cantidad= models.IntegerField(null=True, blank=True) #se pone estos parametros para evitar el el error que no pueda ser nulo el valor
     precioTotal= models.FloatField()
