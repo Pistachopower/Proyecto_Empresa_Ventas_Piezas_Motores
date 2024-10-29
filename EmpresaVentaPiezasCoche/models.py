@@ -7,7 +7,10 @@ from django.utils import timezone
 
 #tablas independientes
 class Proveedor(models.Model):
-    id_proveedor= models.CharField(max_length=100) #los id se ponen a 100 porque puede incrementar los registros
+    #quitar
+    #variables minsuclas 
+    #faltan 
+    #id_proveedor= models.CharField(max_length=100) #los id se ponen a 100 porque puede incrementar los registros
     nombre_proveedor= models.CharField(max_length=100)
     telefono= models.TextField()
     correo= models.CharField(max_length=100, unique=True) #Texto y  único
