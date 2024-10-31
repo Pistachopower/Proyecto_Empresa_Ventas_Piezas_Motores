@@ -64,7 +64,7 @@ class Empleado(models.Model):
     fecha_contratacion = models.DateField(null=True, blank=True)  # Fecha de contratación
     cliente=  models.ForeignKey(Cliente, on_delete = models.CASCADE)
 
-    
+#tabla intermedia  
 class PiezaMotor(models.Model):
     pieza= models.CharField(max_length=100)
     nombre= models.TextField()

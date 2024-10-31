@@ -1,3 +1,6 @@
 from django.shortcuts import render
 
-# Create your views here.
+#esta sera la vista principal que muestra 
+#todas las url o informacion de los modelos
+def index(request):
+    return render(request, 'index.html')
