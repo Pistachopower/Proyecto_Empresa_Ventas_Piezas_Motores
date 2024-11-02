@@ -13,7 +13,13 @@ class Proveedor(models.Model):
     correo= models.CharField(max_length=100, unique=True) #Texto y  único
     direccion= models.TextField()
     
-
+class Empleado(models.Model):
+    empleado= models.CharField(max_length=100)
+    nombre= models.TextField()
+    apellido= models.TextField()
+    cargo= models.CharField(max_length=100)
+    fecha_contratacion = models.DateField(null=True, blank=True)  # Fecha de contratación  
+   
 
 class Cliente(models.Model):
     cliente= models.CharField(max_length=100)
@@ -27,7 +33,10 @@ class Cliente(models.Model):
     #recuerda que en la bd se guardara con los caracteres P y E
     tipo_clientes= models.CharField(max_length=2,choices=TIPO_CLIENTES)
     direccion=  models.TextField(null=True, blank=True) #puede existir registos de clientes sin correo
-    
+    empleado= models.ForeignKey(Empleado, on_delete = models.CASCADE)
+ 
+  
+  
 class MetodoPago(models.Model):
     metodo_pago= models.CharField(max_length=100)
     nombre= models.CharField(max_length=100)
@@ -44,7 +53,6 @@ class MetodoPago(models.Model):
     
 class Pedido(models.Model):
     pedido= models.CharField(max_length=100)
-    metodo_pago= models.ForeignKey(MetodoPago, on_delete = models.CASCADE)
     fecha_pedido= models.DateField()
     total_importe= models.IntegerField()
     ESTADO= [('P', 'Pendiente'), #pendiente por modificar 
@@ -52,24 +60,15 @@ class Pedido(models.Model):
                     ('ENTR', 'Entregado')]
     estado= models.CharField(max_length=4,choices=ESTADO) #se pone en max_length=4 para que agarre los caracteres de ENTR
     metodo_pago = models.ForeignKey(MetodoPago, on_delete = models.CASCADE)
-    cliente_pedido= models.ForeignKey(Cliente, on_delete = models.CASCADE, related_name='pedido_cliente')
+    cliente= models.ForeignKey(Cliente, on_delete = models.CASCADE, related_name='pedido_cliente') #related_name='pedido_cliente': se crea una relacion inversa entre cliente y pedido. Tambiens e usa para poder obtener los todos los pedidos de un cliente
     
-
-#tablas dependientes
-class Empleado(models.Model):
-    empleado= models.CharField(max_length=100)
-    nombre= models.TextField()
-    apellido= models.TextField()
-    cargo= models.CharField(max_length=100)
-    fecha_contratacion = models.DateField(null=True, blank=True)  # Fecha de contratación
-    cliente=  models.ForeignKey(Cliente, on_delete = models.CASCADE)
 
 #tabla intermedia  
 class PiezaMotor(models.Model):
     pieza= models.CharField(max_length=100)
     nombre= models.TextField()
-    proveedor= models.ManyToManyField(Proveedor)
-    pedido= models.ManyToManyField(Pedido, through='PiezaMotor_Pedido')
+    proveedor= models.ManyToManyField(Proveedor) #BORRAR PORQUE ESTA DUPLICADO EL ATRIBUTO
+    pedido= models.ManyToManyField(Pedido, through='PiezaMotor_Pedido') #tabla intermedia entre pedido y piezaMotor
     precio= models.DecimalField(max_digits=10, decimal_places=2) #se permite 10 digitos en total de los cuales 2 pueden esta en el punto decimal
     descripción= models.TextField()
     stock_disponible= models.IntegerField(null=True, blank=True) #se permite que este campo este vacio
