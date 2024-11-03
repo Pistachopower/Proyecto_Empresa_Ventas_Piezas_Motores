@@ -219,36 +219,36 @@
     "model": "auth.permission",
     "pk": 25,
     "fields": {
-        "name": "Can add cliente",
+        "name": "Can add empleado",
         "content_type": 7,
-        "codename": "add_cliente"
+        "codename": "add_empleado"
     }
 },
 {
     "model": "auth.permission",
     "pk": 26,
     "fields": {
-        "name": "Can change cliente",
+        "name": "Can change empleado",
         "content_type": 7,
-        "codename": "change_cliente"
+        "codename": "change_empleado"
     }
 },
 {
     "model": "auth.permission",
     "pk": 27,
     "fields": {
-        "name": "Can delete cliente",
+        "name": "Can delete empleado",
         "content_type": 7,
-        "codename": "delete_cliente"
+        "codename": "delete_empleado"
     }
 },
 {
     "model": "auth.permission",
     "pk": 28,
     "fields": {
-        "name": "Can view cliente",
+        "name": "Can view empleado",
         "content_type": 7,
-        "codename": "view_cliente"
+        "codename": "view_empleado"
     }
 },
 {
@@ -363,36 +363,36 @@
     "model": "auth.permission",
     "pk": 41,
     "fields": {
-        "name": "Can add empleado",
+        "name": "Can add cliente",
         "content_type": 11,
-        "codename": "add_empleado"
+        "codename": "add_cliente"
     }
 },
 {
     "model": "auth.permission",
     "pk": 42,
     "fields": {
-        "name": "Can change empleado",
+        "name": "Can change cliente",
         "content_type": 11,
-        "codename": "change_empleado"
+        "codename": "change_cliente"
     }
 },
 {
     "model": "auth.permission",
     "pk": 43,
     "fields": {
-        "name": "Can delete empleado",
+        "name": "Can delete cliente",
         "content_type": 11,
-        "codename": "delete_empleado"
+        "codename": "delete_cliente"
     }
 },
 {
     "model": "auth.permission",
     "pk": 44,
     "fields": {
-        "name": "Can view empleado",
+        "name": "Can view cliente",
         "content_type": 11,
-        "codename": "view_empleado"
+        "codename": "view_cliente"
     }
 },
 {
@@ -520,7 +520,7 @@
     "pk": 7,
     "fields": {
         "app_label": "EmpresaVentaPiezasCoche",
-        "model": "cliente"
+        "model": "empleado"
     }
 },
 {
@@ -552,7 +552,7 @@
     "pk": 11,
     "fields": {
         "app_label": "EmpresaVentaPiezasCoche",
-        "model": "empleado"
+        "model": "cliente"
     }
 },
 {
@@ -575,191 +575,236 @@
     "model": "EmpresaVentaPiezasCoche.proveedor",
     "pk": 1,
     "fields": {
-        "proveedor": "Lose rest challenge all determine stock song. Officer wonder throughout teacher.",
-        "nombre_proveedor": "Media but people interest area song. Item professional large production professional.",
-        "telefono": "New can executive very. Strategy treat business store avoid.\nWife movie represent gas per use. Worker specific store attention option. Strong skin capital seat.",
-        "correo": "Car poor within product approach teacher break.",
-        "direccion": "Bag enough never investment two modern senior. Nor future today air business onto. Share anyone task tonight wait development."
+        "proveedor": "Act travel report open agency political again. The small and stop.",
+        "telefono": "Customer produce woman beat good water. Pm special nor notice enjoy number herself.\nFar care enjoy build style fear price anyone. Out somebody receive significant. Forget four during.",
+        "correo": "Accept boy Democrat pull woman wonder. Nation cup responsibility.",
+        "direccion": "Wait food real. Not because husband actually defense despite cultural.\nYear increase red economic yes. Material require guy. Fall finally data."
     }
 },
 {
     "model": "EmpresaVentaPiezasCoche.proveedor",
     "pk": 2,
     "fields": {
-        "proveedor": "Soon close exactly product brother late. Relationship possible impact.",
-        "nombre_proveedor": "American voice tax require. Look new too international. Year them question science.",
-        "telefono": "Rich partner it federal indeed work decade. Firm perhaps argue outside adult friend.\nThese experience agent left. Science miss decision ten from support.",
-        "correo": "Certain hospital bill when. Southern design hot race future key help body. Special high town.",
-        "direccion": "Moment bad office money continue. Identify marriage film others.\nSee occur across act start around. Affect really exactly offer. Girl personal whose outside candidate."
+        "proveedor": "However he suffer if five.",
+        "telefono": "White since serious audience third civil young. Bad member action marriage mother manager instead.\nSenior big which food. They gas they second require Republican.",
+        "correo": "Among discuss role direction make play. Air walk player message.",
+        "direccion": "Magazine no medical employee team wall. Little everyone this wife eat they. Consumer responsibility should realize consumer.\nThem born daughter own. Shoulder bed box allow."
     }
 },
 {
     "model": "EmpresaVentaPiezasCoche.proveedor",
     "pk": 3,
     "fields": {
-        "proveedor": "Surface well standard above traditional truth shoulder. Give impact son southern as.",
-        "nombre_proveedor": "Parent TV somebody available. Address bed front get contain total. Keep owner media color much.",
-        "telefono": "Money something risk. Almost appear various nearly rate quickly letter. Carry how task you low name exactly. Sure however nice investment.",
-        "correo": "No little set decision first ahead win. Accept respond like morning represent service deep.",
-        "direccion": "Film office movie quickly worry. Artist sound summer sound two budget yard. Player much action.\nFast worry stuff property boy age. Up price unit how.\nBuild center entire old office."
+        "proveedor": "Risk movie center resource relate lawyer. War level off support beautiful full well entire.",
+        "telefono": "Candidate environmental laugh note understand. Apply whom listen computer example still her.",
+        "correo": "Beautiful reason strategy letter one debate.",
+        "direccion": "Front stock her material officer. Last everybody type toward several deal throughout."
+    }
+},
+{
+    "model": "EmpresaVentaPiezasCoche.proveedor",
+    "pk": 4,
+    "fields": {
+        "proveedor": "Direction morning enjoy history capital. Million group hear sense several not event action.",
+        "telefono": "Fight successful factor view especially land Democrat. Authority red voice site month in. Senior mind majority machine street.",
+        "correo": "Tough power point investment.",
+        "direccion": "Development final quickly position huge bill. It suggest guy plan include dog."
+    }
+},
+{
+    "model": "EmpresaVentaPiezasCoche.empleado",
+    "pk": 1,
+    "fields": {
+        "empleado": "Culture act tell deep find east.",
+        "apellido": "Child who give without star. Adult begin pattern state war including.\nUp movement remember watch. Record give minute way defense. Hope court best word.",
+        "cargo": "People PM forget air social kitchen base. Born city room money value similar decade spring.",
+        "fecha_contratacion": "1972-10-05"
+    }
+},
+{
+    "model": "EmpresaVentaPiezasCoche.empleado",
+    "pk": 2,
+    "fields": {
+        "empleado": "Attorney century pick people story.",
+        "apellido": "Especially three door first safe do over. Above condition toward notice. No hour general idea scientist there mission.\nTend painting nature lawyer it American. End fill still feeling apply pattern.",
+        "cargo": "Year ask national future example figure wall. Know several simply exactly.",
+        "fecha_contratacion": "2001-02-13"
+    }
+},
+{
+    "model": "EmpresaVentaPiezasCoche.empleado",
+    "pk": 3,
+    "fields": {
+        "empleado": "System official forget. Certain matter choose pass catch.",
+        "apellido": "Act address all star million fine majority. Easy project in.",
+        "cargo": "Large decade let. Lot pattern let he attack during. Arrive spend white.",
+        "fecha_contratacion": "2001-11-06"
+    }
+},
+{
+    "model": "EmpresaVentaPiezasCoche.empleado",
+    "pk": 4,
+    "fields": {
+        "empleado": "Himself treat ago whose sound military south. Different best health exactly.",
+        "apellido": "Dark current smile couple that sound son government. Section material lead.",
+        "cargo": "Not seven build several Mr. This view project mouth. Six realize rate want trade.",
+        "fecha_contratacion": "1979-01-18"
     }
 },
 {
     "model": "EmpresaVentaPiezasCoche.cliente",
     "pk": 1,
     "fields": {
-        "cliente": "Notice source charge structure day support. Treatment back show campaign seek require.",
-        "nombre": "Human former forget agreement notice. Receive drive team people information everything around.",
-        "apellido": "Money task attention manager north environment. House possible amount and.",
-        "correo": "Sound day lot production often. Reduce write worker three.",
-        "tipo_clientes": "P",
-        "direccion": "Pattern arrive result section agree answer. Attack late right letter campaign cold. There news at growth.\nHim approach company still play. Despite skin meeting difficult type performance."
-    }
-},
-{
-    "model": "EmpresaVentaPiezasCoche.cliente",
-    "pk": 2,
-    "fields": {
-        "cliente": "Face inside PM. Make street you kind. Mr than chair lose glass.",
-        "nombre": "Involve leg risk development. Guy teacher if end anything war.",
-        "apellido": "Culture contain late alone serious issue chance hope. Majority fall much.",
-        "correo": "Before both she. Pull soon ten writer perform.",
+        "cliente": "Stay sea follow. Miss occur show think customer structure. It off wonder size success many film.",
+        "apellido": "Green push bank we list require. Product moment travel black. Fill mean cold several.",
+        "correo": "Discover form major final. Particular hit yourself address front.",
         "tipo_clientes": "E",
-        "direccion": "Nature would police camera usually million seven.\nCareer minute which turn. Last party my."
+        "direccion": "Mrs no play unit kid. Bed school necessary share there. Center future base pick whole.\nWorry population police. Collection huge effort skin. This yard risk environment state president hand member.",
+        "empleado": 4
+    }
+},
+{
+    "model": "EmpresaVentaPiezasCoche.cliente",
+    "pk": 2,
+    "fields": {
+        "cliente": "Participant contain floor low. Gun her manage. Create agent forget others.",
+        "apellido": "My discuss perhaps TV wrong establish. Politics option blood thus officer.",
+        "correo": "Clear contain catch well. May oil only not down. Somebody whose my bit.",
+        "tipo_clientes": "E",
+        "direccion": "Stage never space stuff music. Mean draw employee letter sound year place. Role answer agree side employee.\nApproach entire role board red term rest. Share stay agent employee board reality.",
+        "empleado": 3
     }
 },
 {
     "model": "EmpresaVentaPiezasCoche.cliente",
     "pk": 3,
     "fields": {
-        "cliente": "A after central eat conference team ability. Appear people yet none he.",
-        "nombre": "Effort difficult arm since occur to score institution. Attorney effort take carry clearly east.",
-        "apellido": "Painting exist our role but evidence rate. Score short happen share. Not everything agent think.",
-        "correo": "Area read just could air daughter performance.",
-        "tipo_clientes": "P",
-        "direccion": "International field fast war coach energy less continue. Hospital moment common in race interview mean."
+        "cliente": "Reality serious various though opportunity gun word garden.",
+        "apellido": "Few director thank deal feeling individual. Probably end central.",
+        "correo": "People near real ball close. Throughout reality memory according matter send.",
+        "tipo_clientes": "E",
+        "direccion": "Computer thing together game best ball. She notice shoulder campaign program easy.\nParty forward certainly agency behind. Budget skill over almost or foreign really.",
+        "empleado": 1
+    }
+},
+{
+    "model": "EmpresaVentaPiezasCoche.cliente",
+    "pk": 4,
+    "fields": {
+        "cliente": "Well TV recently class result law today.",
+        "apellido": "Report side owner summer structure heart. Trade clearly anyone state board product send.",
+        "correo": "Sure dinner table agree. Will Mrs high artist goal choice wrong.",
+        "tipo_clientes": "E",
+        "direccion": "Town fall around hotel you civil few sport. Relationship many stop social. Claim every TV medical second speak.",
+        "empleado": 4
     }
 },
 {
     "model": "EmpresaVentaPiezasCoche.metodopago",
     "pk": 1,
     "fields": {
-        "metodo_pago": "Energy professional fact those window.",
-        "nombre": "Create during son all authority. Still meet so number fear.",
-        "tipo_pago": "Explain degree direction mention various improve. Evidence provide wish maintain summer southern.",
-        "fecha_creacion": "2024-10-31T11:03:01.205",
-        "fecha_ultima_actualizacion": "1993-10-21T06:17:42.913",
-        "pagado": true
+        "metodo_pago": "Actually avoid medical. Option unit respond to adult.",
+        "nombre": "Every house painting production yourself. Bed leave realize type.",
+        "tipo_pago": "Yes common action skin.",
+        "fecha_creacion": "2024-11-03T08:56:48.776",
+        "fecha_ultima_actualizacion": "2020-09-03T17:28:17.366",
+        "pagado": "Six south career into. Mother sort morning water. Company maybe treatment doctor moment anything."
     }
 },
 {
     "model": "EmpresaVentaPiezasCoche.metodopago",
     "pk": 2,
     "fields": {
-        "metodo_pago": "Someone show easy difference offer. Her parent care respond.",
-        "nombre": "Part short run current politics area forget. Now hit interesting edge technology case.",
-        "tipo_pago": "Manage person point edge spend pick seem. Authority book side.",
-        "fecha_creacion": "2024-10-31T11:03:01.205",
-        "fecha_ultima_actualizacion": "1998-05-09T11:28:28.973",
-        "pagado": true
+        "metodo_pago": "Consumer consider might herself necessary.",
+        "nombre": "Let cell manager other. Those agree summer hot property price.",
+        "tipo_pago": "Begin center may tend deal attack. Mr soldier deal indicate.",
+        "fecha_creacion": "2024-11-03T08:56:48.776",
+        "fecha_ultima_actualizacion": "1998-10-13T19:53:44.827",
+        "pagado": "Course standard young gas choice. Letter notice make trip. Go another visit market possible wait."
     }
 },
 {
     "model": "EmpresaVentaPiezasCoche.metodopago",
     "pk": 3,
     "fields": {
-        "metodo_pago": "Your book never we chance.",
-        "nombre": "Meet manager minute current media hit indicate. Perhaps understand seek.",
-        "tipo_pago": "Range civil yourself. Have method parent break. Hard happy cultural tell high religious down.",
-        "fecha_creacion": "2024-10-31T11:03:01.205",
-        "fecha_ultima_actualizacion": "2007-07-12T13:01:20.796",
-        "pagado": false
+        "metodo_pago": "More operation still into. Garden assume often place treatment hit.",
+        "nombre": "Amount same sign college minute season visit. Candidate save deep stock.",
+        "tipo_pago": "Social if environmental money old series. Despite against yard street speech court technology soon.",
+        "fecha_creacion": "2024-11-03T08:56:48.776",
+        "fecha_ultima_actualizacion": "1978-01-20T18:18:29.356",
+        "pagado": "Audience art significant. Growth free security establish few."
+    }
+},
+{
+    "model": "EmpresaVentaPiezasCoche.metodopago",
+    "pk": 4,
+    "fields": {
+        "metodo_pago": "Necessary ask care investment when probably.",
+        "nombre": "Raise lay writer buy full resource. Various born later move gas form apply.",
+        "tipo_pago": "First investment yeah activity dinner area hard. Office fly hour admit move.",
+        "fecha_creacion": "2024-11-03T08:56:48.776",
+        "fecha_ultima_actualizacion": "1992-03-14T16:25:34.329",
+        "pagado": "Set appear dog save.\nMost issue gas hand. Recent building have. Court soon difference without safe."
     }
 },
 {
     "model": "EmpresaVentaPiezasCoche.pedido",
     "pk": 1,
     "fields": {
-        "pedido": "Radio Mr open skill leader.\nField mean job all.",
-        "fecha_pedido": "1987-01-07",
-        "total_importe": -5671,
-        "estado": "ENV",
-        "metodo_pago": 1,
-        "cliente_pedido": 2
-    }
-},
-{
-    "model": "EmpresaVentaPiezasCoche.pedido",
-    "pk": 2,
-    "fields": {
-        "pedido": "Song court mind despite. Surface both certain success according war.",
-        "fecha_pedido": "1985-07-03",
-        "total_importe": 22677,
-        "estado": "ENV",
-        "metodo_pago": 1,
-        "cliente_pedido": 2
-    }
-},
-{
-    "model": "EmpresaVentaPiezasCoche.pedido",
-    "pk": 3,
-    "fields": {
-        "pedido": "According book sound end someone.",
-        "fecha_pedido": "1983-02-20",
-        "total_importe": -18890,
+        "pedido": "Report amount newspaper behind should cause they.",
+        "fecha_pedido": "2014-05-08",
+        "total_importe": -8402,
         "estado": "ENTR",
         "metodo_pago": 1,
-        "cliente_pedido": 3
+        "cliente": 4
     }
 },
 {
-    "model": "EmpresaVentaPiezasCoche.empleado",
-    "pk": 1,
-    "fields": {
-        "empleado": "Know such investment fire. Life next crime never business.",
-        "nombre": "End next same notice collection my many. Clear position individual.\nHer show reveal south movie wait. Share as imagine director foreign worker. Republican cut buy cost take significant.",
-        "apellido": "Then then control section administration. Leader your popular house bar fund. Imagine ground total fine.\nCharacter suggest season yard finish. Indeed through suffer plan wide.",
-        "cargo": "Matter choice institution thing dinner. Simply mention season a admit away and.",
-        "fecha_contratacion": "2014-04-13",
-        "cliente": 2
-    }
-},
-{
-    "model": "EmpresaVentaPiezasCoche.empleado",
+    "model": "EmpresaVentaPiezasCoche.pedido",
     "pk": 2,
     "fields": {
-        "empleado": "Technology place listen. Admit leave prevent onto fine.",
-        "nombre": "World chair industry language everyone apply improve space. Specific gun mind under as. Or prepare full hour movie.\nStep soldier as respond bed thousand. Need skin push degree.",
-        "apellido": "Everything management government growth. Knowledge summer early section present. Specific as ten movement sing she box different. Rock dinner read interview.",
-        "cargo": "No your data maybe week. Common woman television so.",
-        "fecha_contratacion": "2012-03-12",
+        "pedido": "Middle visit go put. Win marriage sound decision. Whether apply into.",
+        "fecha_pedido": "2019-12-01",
+        "total_importe": 411,
+        "estado": "ENTR",
+        "metodo_pago": 3,
         "cliente": 2
     }
 },
 {
-    "model": "EmpresaVentaPiezasCoche.empleado",
+    "model": "EmpresaVentaPiezasCoche.pedido",
     "pk": 3,
     "fields": {
-        "empleado": "Piece serious forward camera step. Blood pretty produce assume. Serve hot situation drop.",
-        "nombre": "Animal culture gas cut specific read three. Anyone computer hair.\nNothing whether force anyone on piece including. Girl want officer forward region help plant.",
-        "apellido": "Meeting admit trip per past with. Debate guess cost rich manager form opportunity.\nQuite play true single attorney behavior. Reveal couple table.",
-        "cargo": "Recent worker certainly and. Special address thank suffer he store song.",
-        "fecha_contratacion": "1974-09-27",
-        "cliente": 1
+        "pedido": "Ok see ok drop choose organization. Keep sit fill scientist wind newspaper model when.",
+        "fecha_pedido": "1990-05-02",
+        "total_importe": 29979,
+        "estado": "P",
+        "metodo_pago": 2,
+        "cliente": 4
+    }
+},
+{
+    "model": "EmpresaVentaPiezasCoche.pedido",
+    "pk": 4,
+    "fields": {
+        "pedido": "Ten radio knowledge. Involve car pay where.",
+        "fecha_pedido": "2014-01-19",
+        "total_importe": 18897,
+        "estado": "P",
+        "metodo_pago": 4,
+        "cliente": 2
     }
 },
 {
     "model": "EmpresaVentaPiezasCoche.piezamotor",
     "pk": 1,
     "fields": {
-        "pieza": "Lay outside both three conference main in than. Try whom nearly us raise reach thing.",
-        "nombre": "Senior how debate peace subject. Raise western group spend.\nUse picture we well then range plan long.\nBillion camera improve. Send important rate condition.",
-        "precio": "0.74",
-        "descripción": "But strong seek plan. Phone be lawyer several he.\nTough society myself key night yet top. Must heavy night such care try Republican. Very indeed whether.",
-        "stock_disponible": 15129,
+        "pieza": "Where give consider know early resource in. Opportunity speech wrong account.",
+        "precio": "0.95",
+        "descripcion": "Serve by nothing follow movement approach she. Lawyer consumer TV.",
+        "stock_disponible": 9329,
         "proveedor": [
-            2,
-            3
+            4
         ]
     }
 },
@@ -767,11 +812,23 @@
     "model": "EmpresaVentaPiezasCoche.piezamotor",
     "pk": 2,
     "fields": {
-        "pieza": "Baby realize sit. Hope boy girl wrong.",
-        "nombre": "Shake music material interesting collection including change. Responsibility first hot training country.\nSide cold together rich. Law image can shake paper. Require once ready east young customer so.",
-        "precio": "0.50",
-        "descripción": "True so customer show tough get. President fine base environment serious. Require available century.",
-        "stock_disponible": -19357,
+        "pieza": "Prevent business garden blood. Last table author. Structure Mr city senior type.",
+        "precio": "0.22",
+        "descripcion": "Thing mention heavy local return whatever. Wide generation media home article clear. Task century event yourself play official.",
+        "stock_disponible": -24179,
+        "proveedor": [
+            3
+        ]
+    }
+},
+{
+    "model": "EmpresaVentaPiezasCoche.piezamotor",
+    "pk": 3,
+    "fields": {
+        "pieza": "Business big indicate letter could Mr begin. Design perhaps fire image.",
+        "precio": "0.43",
+        "descripcion": "Bag gun nor price. Father up position thousand population good set. Message few drop let yourself.\nDifficult out administration whose full wind factor. Really body political box save cup fine any.",
+        "stock_disponible": 24590,
         "proveedor": [
             1
         ]
@@ -779,15 +836,14 @@
 },
 {
     "model": "EmpresaVentaPiezasCoche.piezamotor",
-    "pk": 3,
+    "pk": 4,
     "fields": {
-        "pieza": "Draw talk decade shoulder.",
-        "nombre": "Professor necessary help important black without last. Prove clearly everybody book time decide none word.\nWant be require. Several executive degree.",
-        "precio": "0.95",
-        "descripción": "May better form price. Sport simple sister politics. Name firm which again interview.\nHappen future amount across threat market leader avoid. Personal six meet fight military boy guy.",
-        "stock_disponible": 14282,
+        "pieza": "Citizen argue true.\nNeed part history response. Base show amount stock realize know.",
+        "precio": "0.31",
+        "descripcion": "Weight accept toward already seven a recent. Bad hotel difficult. Special official final rich whole business make.",
+        "stock_disponible": 6890,
         "proveedor": [
-            3
+            2
         ]
     }
 },
@@ -805,8 +861,8 @@
     "model": "EmpresaVentaPiezasCoche.piezamotor_pedido",
     "pk": 2,
     "fields": {
-        "pieza": 2,
-        "pedido": 2,
+        "pieza": 1,
+        "pedido": 1,
         "cantidad": null,
         "precioTotal": 0.0
     }
@@ -815,8 +871,8 @@
     "model": "EmpresaVentaPiezasCoche.piezamotor_pedido",
     "pk": 3,
     "fields": {
-        "pieza": 3,
-        "pedido": 2,
+        "pieza": 2,
+        "pedido": 4,
         "cantidad": null,
         "precioTotal": 0.0
     }
@@ -835,30 +891,50 @@
     "model": "EmpresaVentaPiezasCoche.piezamotor_pedido",
     "pk": 5,
     "fields": {
-        "pieza": 1,
-        "pedido": 2,
-        "cantidad": 4679,
-        "precioTotal": 0.45233949825588327
+        "pieza": 4,
+        "pedido": 1,
+        "cantidad": null,
+        "precioTotal": 0.0
     }
 },
 {
     "model": "EmpresaVentaPiezasCoche.piezamotor_pedido",
     "pk": 6,
     "fields": {
-        "pieza": 1,
+        "pieza": 3,
         "pedido": 1,
-        "cantidad": -24814,
-        "precioTotal": 0.665602712872523
+        "cantidad": 2685,
+        "precioTotal": 0.15215827654553304
     }
 },
 {
     "model": "EmpresaVentaPiezasCoche.piezamotor_pedido",
     "pk": 7,
     "fields": {
-        "pieza": 3,
-        "pedido": 2,
-        "cantidad": 18569,
-        "precioTotal": 0.2729476570241617
+        "pieza": 2,
+        "pedido": 1,
+        "cantidad": -17965,
+        "precioTotal": 0.8486218561717674
+    }
+},
+{
+    "model": "EmpresaVentaPiezasCoche.piezamotor_pedido",
+    "pk": 8,
+    "fields": {
+        "pieza": 1,
+        "pedido": 4,
+        "cantidad": -8413,
+        "precioTotal": 0.46026025029853845
+    }
+},
+{
+    "model": "EmpresaVentaPiezasCoche.piezamotor_pedido",
+    "pk": 9,
+    "fields": {
+        "pieza": 2,
+        "pedido": 4,
+        "cantidad": -292,
+        "precioTotal": 0.7074388014307975
     }
 }
 ]
