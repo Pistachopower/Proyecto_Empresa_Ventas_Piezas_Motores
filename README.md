@@ -73,5 +73,5 @@ El archivo `urls.py` define las rutas para acceder a cada una de las vistas. A c
 
 ## Diagrama del Modelo Relacional
 
-![Modelo Relacional](ruta/a/tu/imagen.png)
+![Modelo Relacional](modelo_relacion_empresaventapiezacoche.png)
 
