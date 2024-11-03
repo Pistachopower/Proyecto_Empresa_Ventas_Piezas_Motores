@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedidos_enviados_entregados</title>
+</head>
+<body>
+    <h4>Estados de los pedidos</h4>
+    {% for p_e in pedidos_estados %}
+        <li>Nombre del pedido: {{ p_e.pedido }}</li>
+        <li>Estado del pedido: {{ p_e.get_estado_display }}</li>
+        <li>Fecha del pedido: {{ p_e.fecha_pedido }}</li>
+        <hr>
+    {% endfor %}
+
+</body>
+</html>

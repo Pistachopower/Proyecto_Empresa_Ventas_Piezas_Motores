@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClienteEmpleado_anio_mes</title>
+</head>
+<body>
+
+
+        <h4>Clientes y Empleados por Año y Mes</h4>
+        <ul>
+            {% for cliente in anioMes_empleado %}
+                <li>
+                    Nombre del cliente: {{ cliente.cliente }}  <!-- Asegúrate de que este es el nombre del cliente -->
+                    <ul>
+                        <li>Nombre del empleado: 
+                            {# si hay un cliente que se relaciona con empleado mostrara el nombre del empleado #}
+                            {% if cliente.empleado %}
+                                {{ cliente.empleado.empleado }}  <!-- Asegúrate de que el atributo es correcto -->
+                            
+                            {# En caso contrario mostrara esto #}
+                            {% else %}
+                                No hay información del empleado
+                            {% endif %}
+                        </li>
+
+                        <li>Fecha de contratación del empleado: 
+                            {#si hay un cliente que se relaciona con empleado con el año 2001 y el mes 11 lo muestra #}
+                            {% if cliente.empleado.fecha_contratacion %}
+                                {{ cliente.empleado.fecha_contratacion }}
+                            
+                            {# En caso contrario muestra este mensaje #}
+                            {% else %}
+                                No hay fecha de contratación
+                            {% endif %}
+                        </li>
+                    </ul>
+                    <hr>
+                </li>
+
+            {#Si no hay clientes que se relacionen con empleado con la fecha de contratacion con el año 2001 y mes 11 mostrará este resultado #}
+            {% empty %}
+                
+                <li>no hay clientes que se relacionen con empleado con la fecha de contratacion con el año 2001 y mes 11.</li>
+            {% endfor %}
+        </ul>
+
+
+</body>
+</html>

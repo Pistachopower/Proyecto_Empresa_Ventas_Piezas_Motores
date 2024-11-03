@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proveedor piezamotor</title>
+</head>
+<body>
+
+    <div>
+        <h4>El proveedor: "{{ proveedor_p }}" ha suministrado estas piezas:</h4>
+        <ul>
+            {% for pieza in mostrar_proveedorpiezamotor %}
+                <li>Nombre de la pieza: {{ pieza.pieza }}</li>
+                <li>Descripción: {{ pieza.descripcion }}</li>
+                <li>Precio: {{ pieza.precio }}</li>
+                <hr>
+            {% endfor %}
+        </ul>
+    </div>
+        
+
+
+</html>

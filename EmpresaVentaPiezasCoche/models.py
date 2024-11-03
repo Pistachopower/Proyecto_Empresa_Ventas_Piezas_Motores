@@ -8,14 +8,12 @@ from django.utils import timezone
 #tablas independientes
 class Proveedor(models.Model):
     proveedor= models.CharField(max_length=100) #los id se ponen a 100 porque puede incrementar los registros
-    nombre_proveedor= models.CharField(max_length=100)
     telefono= models.TextField()
     correo= models.CharField(max_length=100, unique=True) #Texto y  único
     direccion= models.TextField()
     
 class Empleado(models.Model):
     empleado= models.CharField(max_length=100)
-    nombre= models.TextField()
     apellido= models.TextField()
     cargo= models.CharField(max_length=100)
     fecha_contratacion = models.DateField(null=True, blank=True)  # Fecha de contratación  
@@ -23,7 +21,6 @@ class Empleado(models.Model):
 
 class Cliente(models.Model):
     cliente= models.CharField(max_length=100)
-    nombre= models.CharField(max_length=100)
     apellido= models.CharField(max_length=100)
     correo= models.CharField(max_length=100, unique=True) #Texto y  único
     TIPO_CLIENTES= [('P', 'Particular'),  
@@ -47,8 +44,7 @@ class MetodoPago(models.Model):
     fecha_creacion= models.DateTimeField(default=timezone.now)
     fecha_ultima_actualizacion= models.DateTimeField(auto_now=True) #se usa este parametro para poder manejar la fecha exacta de que se actualizó algún campo en el modelo MetodoPago
     #nuevo atributo
-    pagado = models.BooleanField(default=False) # Valor por defecto si no se proporciona)
-    default=False  # Valor por defecto si no se proporciona
+    pagado = models.CharField(max_length=100)# Valor por defecto si no se proporciona)
     
     
 class Pedido(models.Model):
@@ -56,8 +52,8 @@ class Pedido(models.Model):
     fecha_pedido= models.DateField()
     total_importe= models.IntegerField()
     ESTADO= [('P', 'Pendiente'), #pendiente por modificar 
-                    ('ENV', 'Enviado'),
-                    ('ENTR', 'Entregado')]
+                ('ENV', 'Enviado'),
+                ('ENTR', 'Entregado')]
     estado= models.CharField(max_length=4,choices=ESTADO) #se pone en max_length=4 para que agarre los caracteres de ENTR
     metodo_pago = models.ForeignKey(MetodoPago, on_delete = models.CASCADE)
     cliente= models.ForeignKey(Cliente, on_delete = models.CASCADE, related_name='pedido_cliente') #related_name='pedido_cliente': se crea una relacion inversa entre cliente y pedido. Tambiens e usa para poder obtener los todos los pedidos de un cliente
@@ -66,13 +62,11 @@ class Pedido(models.Model):
 #tabla intermedia  
 class PiezaMotor(models.Model):
     pieza= models.CharField(max_length=100)
-    nombre= models.TextField()
     proveedor= models.ManyToManyField(Proveedor) #BORRAR PORQUE ESTA DUPLICADO EL ATRIBUTO
     pedido= models.ManyToManyField(Pedido, through='PiezaMotor_Pedido') #tabla intermedia entre pedido y piezaMotor
     precio= models.DecimalField(max_digits=10, decimal_places=2) #se permite 10 digitos en total de los cuales 2 pueden esta en el punto decimal
-    descripción= models.TextField()
+    descripcion= models.TextField()
     stock_disponible= models.IntegerField(null=True, blank=True) #se permite que este campo este vacio
-    proveedor= models.ManyToManyField(Proveedor)
     
 #tabla intermedia
 class PiezaMotor_Pedido(models.Model):
