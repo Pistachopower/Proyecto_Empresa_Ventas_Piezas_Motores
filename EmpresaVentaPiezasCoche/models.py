@@ -62,7 +62,7 @@ class Pedido(models.Model):
 #tabla intermedia  
 class PiezaMotor(models.Model):
     pieza= models.CharField(max_length=100)
-    proveedor= models.ManyToManyField(Proveedor) #BORRAR PORQUE ESTA DUPLICADO EL ATRIBUTO
+    proveedor= models.ManyToManyField(Proveedor) 
     pedido= models.ManyToManyField(Pedido, through='PiezaMotor_Pedido') #tabla intermedia entre pedido y piezaMotor
     precio= models.DecimalField(max_digits=10, decimal_places=2) #se permite 10 digitos en total de los cuales 2 pueden esta en el punto decimal
     descripcion= models.TextField()

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PiezasMotor_pedidos</title>
+</head>
+<body>
+    <h4>piezasMotor_pedidos_nulo</h4>
+
+    <ul>
+        {% for tabla in piezasMotor_pedidos_nulo%}
+            <li>nombre de pedido: {{ tabla.pedido.pedido }}</li>
+            <li>nombre de pieza: {{ tabla.pieza.descripcion }}</li>
+
+            <li>id tabla intermedia intermedia:{{ tabla.id }}</li>
+            <li>cantidad: {{ tabla.cantidad }}</li>
+            <hr>
+        {% empty %}
+             <li>no hay informacion.</li>
+        {% endfor %}
+    </ul>
+    
+</body>
+</html>

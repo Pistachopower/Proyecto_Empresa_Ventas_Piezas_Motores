@@ -20,6 +20,10 @@
         <li><a href="{% url 'detalle_proveedor' 'A' %}">Muestra el nombre y sus atributos del proveedor cumpliendo el re_Path</a></li>
         <li><a href="{% url 'anioMes_empleado' '2001' '11' %}">filtra los clientes basándose en el año y mes de contratación del empleado</a></li>
         <li><a href="{% url 'pedidos_estados' 'ENV' %}">Muestra los pedidos que están enviados, pendientes o entregados ordenados por fecha descendente</a></li>
+        <li><a href="{% url 'mediamaxminpedidos' %}">Muestra la media, el maximo y minino de los pedidos</a></li>
+        <li><a href="{% url 'clientepedidoinverso' '2' %}">Cliente pedido inverso</a></li>
+        <li><a href="{% url 'limite_metodoP' %}">Muestra 2 nombres de la vista metodo pago</a></li>
+        <li><a href="{% url 'piezasMotor_pedidos_nulo' %}">vista de los pedidos y las piezas que la cantidad es nula</a></li>
     </ul>
     
 </html>

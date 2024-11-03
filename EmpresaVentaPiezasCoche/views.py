@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.db.models import Q  #Q: para trabajar con condiciones OR
+from django.db.models import Avg, Max, Min, Prefetch
 from .models import Pedido, MetodoPago, Cliente, Empleado, PiezaMotor_Pedido, PiezaMotor, Proveedor
 
 
@@ -82,3 +83,36 @@ def pedidos_enviados_O_entregados(request, estado_P1):
     pedidos_estados= Pedido.objects.filter(Q(estado= estado_P1) | Q(estado='P') | Q(estado='ENTR')).order_by('-fecha_pedido')
     return render(request, 'pedidos_enviados_O_entregados/Pedidos_enviados_O_entregados.html', { 'pedidos_estados': pedidos_estados})
 
+#una vista que me muestre la media de los pedidos, el máximo  y el minimo de pedido
+#requisito: aggregate
+def mediamaxminpedidos(request):
+    #hacemos el calculo con el campo total_importe 
+    calculo_pedidos= Pedido.objects.aggregate(Avg('total_importe'), Max('total_importe'), Min('total_importe'))
+    
+    #luego guardamos en variables las operaciones
+    media= calculo_pedidos['total_importe__avg']
+    maximo= calculo_pedidos['total_importe__max']
+    minimo= calculo_pedidos['total_importe__min']
+    
+    #devolvemos el resultado en varios diccionarios para mostrar en la template
+    return render(request, 'calculospedidos/Calculospedidos.html', {'media':media, 'maximo': maximo, 'minimo':minimo})
+
+#una vista que me muestre cliente el cliente con sus pedidos
+#requisito: relacion inversa 
+def clientepedidoinverso(request, id_cliente):
+    #creamos la relacion reversa importando Prefetch y usando el related_name de la vista cliente llamada: pedido_cliente
+    cliente= Cliente.objects.prefetch_related(Prefetch('pedido_cliente')).get(id= id_cliente)
+    return render(request, 'clientepedidoinverso/clientepedidoinverso.html', {'clientepedidoinverso':cliente})
+
+
+#una vista que me muestre dos registros de metodo de pago
+#requisito: limit
+def limite_metodo_pago(request):
+    limite_metodoP=  MetodoPago.objects.all()[:2]
+    return render(request, 'limite_metodopago/limite_metodopago.html', {'limite_metodoP': limite_metodoP})
+    
+#una vista de los pedidos y las piezas que la cantidad es nula
+def piezasMotor_pedidos_nulo(request):
+	# Prefetch PiezaMotor y Pedido a través de la tabla intermedia PiezaMotor_Pedido
+	piezasMotor_pedidos_nulo = PiezaMotor_Pedido.objects.prefetch_related('pieza', 'pedido').filter(cantidad= None)
+	return render(request, 'piezasMotor_pedidosnulo/PiezasMotor_pedidos.html', {'piezasMotor_pedidos_nulo': piezasMotor_pedidos_nulo})

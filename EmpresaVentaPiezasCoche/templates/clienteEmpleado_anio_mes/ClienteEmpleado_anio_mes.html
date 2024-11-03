@@ -12,12 +12,12 @@
         <ul>
             {% for cliente in anioMes_empleado %}
                 <li>
-                    Nombre del cliente: {{ cliente.cliente }}  <!-- Asegúrate de que este es el nombre del cliente -->
+                    Nombre del cliente: {{ cliente.cliente }} 
                     <ul>
                         <li>Nombre del empleado: 
                             {# si hay un cliente que se relaciona con empleado mostrara el nombre del empleado #}
                             {% if cliente.empleado %}
-                                {{ cliente.empleado.empleado }}  <!-- Asegúrate de que el atributo es correcto -->
+                                {{ cliente.empleado.empleado }} 
                             
                             {# En caso contrario mostrara esto #}
                             {% else %}
