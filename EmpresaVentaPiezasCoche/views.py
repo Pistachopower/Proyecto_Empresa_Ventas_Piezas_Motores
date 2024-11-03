@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.db.models import Q  #Q: para trabajar con condiciones OR
 from django.db.models import Avg, Max, Min, Prefetch
+from django.views.defaults import page_not_found
 from .models import Pedido, MetodoPago, Cliente, Empleado, PiezaMotor_Pedido, PiezaMotor, Proveedor
 
 
@@ -116,3 +117,21 @@ def piezasMotor_pedidos_nulo(request):
 	# Prefetch PiezaMotor y Pedido a través de la tabla intermedia PiezaMotor_Pedido
 	piezasMotor_pedidos_nulo = PiezaMotor_Pedido.objects.prefetch_related('pieza', 'pedido').filter(cantidad= None)
 	return render(request, 'piezasMotor_pedidosnulo/PiezasMotor_pedidos.html', {'piezasMotor_pedidos_nulo': piezasMotor_pedidos_nulo})
+
+
+#vista de error
+def mi_error_404(request,exception=None):
+    return render(request, 'errores/404.html',None,None,404)
+
+def mi_error_400(request, exception=None):
+    return render(request, 'errores/400.html', status=400)
+
+def mi_error_403(request, exception=None):
+    return render(request, 'errores/403.html', status=403)
+
+def mi_error_500(request):
+    return render(request, 'errores/500.html', status=500)
+
+
+
+
