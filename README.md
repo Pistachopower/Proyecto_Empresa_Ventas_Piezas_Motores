@@ -1,142 +1,77 @@
-# Proyecto_Empresa_Ventas_Piezas_Motores
-El siguiente proyecto es de una empresa dedicada a la venta de piezas de coche de alta calidad. Nuestra tienda online ofrece una amplia gama de productos para todas tus necesidades automotrices, garantizando la mejor experiencia de compra y servicio al cliente.
+# Proyecto de Gestión de Pedidos de Piezas de Motor
 
-# Descripción del Modelo Entidad-Relación
+Este proyecto implementa una base de datos para gestionar pedidos de piezas de motor, con funcionalidades para administrar clientes, empleados, proveedores, métodos de pago, y piezas de motor. El sistema permite realizar consultas avanzadas a través de diferentes vistas y URLs, optimizadas para un rendimiento eficiente en Django.
 
-Este modelo entidad-relación (ER) representa un sistema de gestión de pedidos, empleados, clientes, proveedores y piezas de motor. A continuación, se describen cada uno de los modelos, atributos y parámetros usados en el esquema.
+## Descripción de la Base de Datos
 
-# Descripción del Modelo Entidad-Relación
+La base de datos incluye las siguientes tablas principales:
 
-Este modelo entidad-relación está diseñado para gestionar una plataforma de venta de piezas de coches. En el modelo, se incluyen diversas entidades que representan los principales actores involucrados en el sistema, tales como **Clientes**, **Pedidos**, **Proveedores**, **Piezas de Motor**, entre otros. Además, se establecen las relaciones y cardinalidades necesarias para reflejar la interacción entre estas entidades, permitiendo gestionar de manera eficaz los pedidos, productos, clientes y proveedores.
+1. **Proveedor**: Almacena la información de los proveedores de piezas de motor, como nombre, teléfono, correo y dirección.
 
-## Entidades y Atributos
+2. **PiezaMotor**: Registra cada pieza de motor, incluyendo su nombre, precio, descripción, stock disponible y sus proveedores asociados.
 
-## Proveedor
-- **id_proveedor**: Identificador único del proveedor.
-- **nombre_proveedor**: Nombre de la empresa o persona que provee las piezas.
-- **teléfono**: Número de contacto del proveedor.
-- **correo**: Correo electrónico del proveedor.
-- **dirección**: Ubicación física del proveedor.
+3. **Cliente**: Gestiona los datos de los clientes, como nombre, apellido, correo, dirección y tipo de cliente (particular o empresa).
 
-## Proveedor_PiezaMotor
-- **id_proveedor**: Identificador del proveedor que suministra la pieza.
-- **id_pieza**: Identificador de la pieza suministrada.
+4. **Empleado**: Contiene la información de los empleados, incluyendo nombre, apellido, cargo y fecha de contratación.
 
-## PiezaMotor
-- **id_pieza**: Identificador único de la pieza de motor.
-- **nombre**: Nombre o descripción de la pieza.
-- **precio**: Precio de la pieza.
-- **descripción**: Descripción detallada de la pieza.
-- **stock_disponible**: Cantidad disponible en inventario.
+5. **Pedido**: Representa los pedidos realizados por los clientes, incluyendo el cliente asociado, el método de pago, la fecha del pedido, el total importe y el estado (pendiente, enviado, entregado).
 
-## Proveedor_Pedido
-- **id_proveedor**: Relación con el proveedor que atiende el pedido.
-- **id_pedido**: Relación con el pedido específico.
+6. **MetodoPago**: Define los métodos de pago disponibles, con detalles como nombre, tipo de pago, fecha de creación y estado (pagado o no).
 
-## Pedido
-- **id_pedido**: Identificador único del pedido.
-- **id_metodo_pago**: Método de pago utilizado para el pedido.
-- **id_cliente_pedido**: Cliente que realiza el pedido.
-- **fecha_pedido**: Fecha en que se realiza el pedido.
-- **total_importe**: Importe total del pedido.
-- **estado**: Estado actual del pedido (pendiente, enviado, entregado).
+7. **Tablas Intermedias**:
+   - **PiezaMotor_Proveedor**: Relaciona las piezas de motor con los proveedores que las suministran.
+   - **PiezaMotor_Pedido**: Une las piezas de motor con los pedidos, indicando la cantidad y el precio total de cada pieza en el pedido.
 
-## MétodoPago
-- **id_metodo_pago**: Identificador único del método de pago.
-- **nombre**: Nombre del método de pago (por ejemplo, tarjeta, PayPal).
-- **tipo_pago**: Tipo de método de pago.
-- **fecha_Creacion**: Fecha de creación del método de pago.
-- **fecha_Ultima_Creacion**: Fecha de la última actualización.
+## Vistas
 
-## Cliente
-- **id_cliente**: Identificador único del cliente.
-- **nombre**: Nombre del cliente.
-- **apellido**: Apellido del cliente.
-- **correo**: Correo electrónico del cliente.
-- **TIPO_CLIENTE**: Especifica si es un cliente particular, empresa, o dirección.
+El archivo `views.py` contiene varias vistas para realizar diferentes consultas sobre los datos de la base de datos. A continuación, se describen algunas de las principales:
 
-## DirecciónPrincipal
-- **id_direccion**: Identificador único de la dirección.
-- **id_cliente**: Cliente al que pertenece la dirección.
-- **id_Provincia**: Relación con la provincia de la dirección.
-- **calle**: Calle de la dirección.
-- **provincia**: Provincia de la dirección.
-- **código_postal**: Código postal correspondiente.
+- **index**: Muestra la página principal.
+- **mostrar_clientes**: Lista todos los clientes.
+- **mostrar_pedidocliente**: Muestra los pedidos asociados a un cliente específico.
+- **mostrartodosdatos**: Muestra todos los datos almacenados en el sistema.
+- **empleadoatiendecliente**: Lista los clientes atendidos por un empleado específico.
+- **pedidos_enviados_pagados**: Filtra los pedidos que están pendientes o pagados.
+- **proveedor_piezamotor**: Muestra las piezas de motor de un proveedor específico.
+- **proveedor_detalle**: Detalla la información del proveedor, filtrando los nombres que comienzan con una letra mayúscula.
+- **cliente_empleado_anio_mes**: Lista los clientes atendidos por empleados en un año y mes específico.
+- **pedidos_enviados_O_entregados**: Filtra los pedidos que están enviados o entregados.
+- **mediamaxminpedidos**: Muestra la media, máximo y mínimo de los pedidos.
+- **clientepedidoinverso**: Consulta inversa de clientes y pedidos.
+- **limite_metodo_pago**: Filtra los métodos de pago que cumplen un límite específico.
+- **piezasMotor_pedidos_nulo**: Consulta las piezas de motor con pedidos nulos.
 
-## Provincia
-- **id_Provincia**: Identificador único de la provincia.
-- **nombre**: Nombre de la provincia.
-- **comunidad**: Comunidad autónoma a la que pertenece la provincia.
-- **num_habitantes**: Número de habitantes de la provincia.
+## URLs
 
-## Empleado
-- **id_empleado**: Identificador único del empleado.
-- **id_empresa_empleado**: Empresa para la que trabaja el empleado.
-- **nombre**: Nombre del empleado.
-- **apellido**: Apellido del empleado.
-- **cargo**: Cargo que ocupa en la empresa.
-- **fecha_Contratacion**: Fecha de contratación del empleado.
+El archivo `urls.py` define las rutas para acceder a cada una de las vistas. A continuación, se listan algunas de las rutas principales:
 
-## Empresa
-- **id_empresa**: Identificador único de la empresa.
-- **nombre**: Nombre de la empresa.
-- **teléfono**: Teléfono de contacto de la empresa.
-- **dirección**: Dirección de la sede principal de la empresa.
-- **email_contacto**: Correo de contacto.
+- `/`: Página principal.
+- `/todosclientes`: Lista todos los clientes.
+- `/pedidocliente`: Muestra los pedidos de un cliente.
+- `/todoslosdatos`: Muestra todos los datos.
+- `/empleadoatiendecliente/<int:id_empleado>`: Clientes atendidos por un empleado específico.
+- `/pedidospendientespagados/<str:estado>/<str:pag>`: Filtra pedidos pendientes y pagados.
+- `/proveedorpiezas/<str:proveedor_p>`: Piezas de motor de un proveedor específico.
+- `/proveedor/<str:proveedor_nombre>`: Detalle de un proveedor, filtrando por nombre en mayúscula.
+- `/aniomesempleado/<int:anio>/<int:mes>`: Clientes atendidos por empleados en un año y mes específicos.
+- `/estadopedido/<str:estado_P1>`: Filtra pedidos enviados o entregados.
+- `/mediamaxminpedidos`: Muestra media, máximo y mínimo de los pedidos.
+- `/clientepedidoinverso/<int:id_cliente>`: Consulta inversa de clientes y pedidos.
+- `/metodopagolimite`: Filtra métodos de pago según un límite.
+- `/piezasMotor_pedidos_nulo`: Consulta piezas de motor con pedidos nulos.
 
-## Relaciones y Cardinalidades
+## Requisitos Cumplidos
 
-1. **Proveedor - PiezaMotor (N:M)**:  
-   Un proveedor puede suministrar muchas piezas de motor, y una pieza de motor puede ser suministrada por varios proveedores.
+## Requisitos Cumplidos
 
-2. **PiezaMotor - Pedido (N:M)**:  
-   Un pedido puede contener varias piezas de motor, y una pieza de motor puede estar en varios pedidos.
-
-3. **Proveedor - Pedido (N:M)**:  
-   Un proveedor puede suministrar piezas para varios pedidos, y un pedido puede requerir productos de diferentes proveedores.
-
-4. **Cliente - Pedido (N:1)**:  
-   Un cliente puede realizar muchos pedidos, pero un pedido es realizado por un solo cliente.
-
-5. **MétodoPago - Pedido (N:1)**:  
-   Muchos pedidos pueden ser realizados con un mismo método de pago, pero cada pedido utiliza solo un método de pago.
-
-6. **Provincia - DirecciónPrincipal (N:1)**:  
-   Muchas direcciones pueden estar ubicadas en una provincia, pero cada dirección solo pertenece a una provincia.
-
-7. **Cliente - DirecciónPrincipal (1:1)**:  
-   Cada cliente tiene una dirección principal, y una dirección principal pertenece a un solo cliente.
-
-8. **Empleado - Empresa (N:1)**:  
-   Muchos empleados pueden trabajar en una empresa, pero cada empleado trabaja para una sola empresa.
-
-9. **Empresa - Empleado (1:N)**:  
-   Una empresa puede emplear a muchos empleados, pero cada empleado trabaja para una sola empresa.
-
-## Justificación de las Relaciones
-
-### Relaciones N:M
-- **Proveedor - PiezaMotor**: Esta relación permite modelar que un proveedor puede suministrar diversas piezas de motor, y a su vez, una pieza puede ser provista por distintos proveedores. Esto es esencial en un sistema donde se manejan múltiples opciones de proveedores para optimizar costos o disponibilidad de productos.
-  
-- **PiezaMotor - Pedido**: La relación muchos a muchos entre estas tablas es necesaria porque un pedido puede incluir varias piezas, y una pieza puede estar asociada a múltiples pedidos diferentes a lo largo del tiempo. Esto refleja la realidad de un sistema de pedidos donde las piezas son productos recurrentes.
-
-- **Proveedor - Pedido**: Es necesario modelar la relación entre proveedores y pedidos de forma N:M porque un pedido puede requerir productos de diferentes proveedores, y un proveedor puede estar asociado con múltiples pedidos, lo que es común en un sistema de logística y distribución.
-
-### Relaciones N:1
-- **Cliente - Pedido**: La relación muchos a uno refleja que un cliente puede realizar muchos pedidos, pero cada pedido está asociado únicamente a un cliente. Esto es lógico en términos comerciales donde un pedido tiene un responsable (cliente) definido.
-
-- **MétodoPago - Pedido**: Cada pedido utiliza un solo método de pago, pero un método de pago puede ser utilizado en múltiples pedidos. Esto refleja la realidad de cualquier sistema de ventas donde los clientes pueden utilizar un mismo método para varias transacciones.
-
-- **Provincia - DirecciónPrincipal**: Una dirección está en una sola provincia, pero muchas direcciones pueden estar en la misma provincia. Este diseño permite gestionar las ubicaciones geográficas de manera estructurada y lógica.
-
-- **Empleado - Empresa**: La relación muchos a uno entre empleado y empresa es necesaria porque cada empleado trabaja para una sola empresa, aunque una empresa puede tener varios empleados. Este es un reflejo directo de la estructura organizativa de las empresas.
-
-### Relaciones 1:1
-- **Cliente - DirecciónPrincipal**: Cada cliente tiene una única dirección principal, lo que garantiza que haya una correspondencia directa entre los datos de cliente y su dirección principal registrada en el sistema.
+1. **Consultas Complejas**: El proyecto implementa filtros avanzados usando condiciones `AND`, `OR`, `aggregate`, y consultas optimizadas con `select_related` y `prefetch_related`.
+2. **Manejo de Relaciones**: Se usan relaciones ManyToMany, ManyToOne y OneToOne entre las tablas para optimizar las consultas.
+3. **Páginas de Error Personalizadas**: Se incluyen vistas de errores personalizadas para los códigos de error 400, 403, 404, y 500.
+4. **Datos de Prueba**: Se usa un fixture para gestionar datos de prueba en producción.
+5. **Vista con Dos Parámetros**: Se implementa una vista que utiliza `re_path` con un entero y un string como parámetros, aplicando filtros `AND`, `OR`, `order by`, `aggregate`, relación inversa, `limit`, y el uso de `None`.
 
 
-# Diagrama ER
+## Diagrama del Modelo Relacional
 
-![Diagrama ER](ER_EmpresaPiezaCoches.png)
-
+![Modelo Relacional](ruta/a/tu/imagen.png)
 
