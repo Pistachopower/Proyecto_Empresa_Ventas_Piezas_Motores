@@ -1,0 +1,20 @@
+<ul>
+  <li>Cantidad de registros en la tabla cliente: {{ forloop.counter }}</li>
+  <li>Nombre del Cliente: {{ cliente.cliente|upper }}</li>
+  <li>Apellido: {{ cliente.apellido|slice:":10" }}</li>
+  <li>Correo: {{ cliente.correo|join:"." }}</li>
+
+  <li>Dirección: {{ cliente.direccion }}</li>
+
+  {% if cliente.tipo_clientes == 'E' %}
+    <li>Tipo de cliente: {{ cliente.tipo_clientes|lower }}</li>
+  {% else %}
+    <p>El cliente no tiene una dirección que tenga la palabra fall</p>
+  {% endif %}
+
+  {% if cliente.id >= 4 %}
+    <li>El id del cliente es: {{ cliente.id }}</li>
+  {% endif %}
+
+  <hr />
+</ul>

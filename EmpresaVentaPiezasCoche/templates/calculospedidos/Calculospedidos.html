@@ -1,17 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculos pedidos</title>
-</head>
-<body>
-    <h4>Calculos pedidos</h4>
-    <ul>
-        <li>La media es: {{ media }} </li>  
-        <li>El máximo es: {{ maximo }} </li>
-        <li>El mínimo es: {{ minimo }} </li>  
-    </ul>
+{% extends 'principal.html' %}
+{% block cabecera %}
+<title>Principal</title>
+{% endblock %}
 
-</body>
-</html>
+{% block contenido %}
+  {% include 'calculospedidos/contenido_Calculospedidos.html' %}
+{% endblock %}

@@ -1,37 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Muestra al menos un campo de cada tabla</title>
-</head>
-<body>
-    <div>
-        <h2>Muestra al menos un atributo de las tablas: </h2>  
-        
-        {% for tabla in mostrartodosdatos %}
-        <p>[tabla intermedia] Pieza Pedido ID: {{ tabla.id }}</p> <!-- Atributo id de PiezaMotor_Pedido -->
-        <p>Fecha pedido: {{ tabla.pedido.fecha_pedido }}</p>  <!-- Atributo de Pedido -->
-        <p>Método de Pago: {{ tabla.pedido.metodo_pago.nombre }}</p>  <!-- Atributo de MetodoPago -->
-        <p>Nombre del Cliente: {{ tabla.pedido.cliente.cliente }}</p>  <!-- Atributo de Cliente -->
-        <p>Empleado: {{ tabla.pedido.cliente.empleado.empleado }}</p>  <!-- Atributo nombre de Empleado -->
-        <p>Pieza motor nombre: {{ tabla.pieza.pieza }}</p> <!-- Atributo nombre de PiezaMotor -->
-        
-        <!--Al existir entre piezaMotor y proveedor una tabla intermedia many to many se hace otro bucle interno que accede a la tabla proveedor-->
-        
+{% extends 'principal.html' %}
 
-         <!-- Datos de Proveedores y tabla intermedia PiezaMotor_Proveedor -->
-        <p>Nombre de los proveedores asociados: </p>
-        <ul>
-            <!--una pieza puede estar asociada o vinculada a varios proveedores, por eso usamos el bucle intenro-->
-            {% for proveedor in tabla.pieza.proveedor.all %}
-                <li>Nombre del proveedor: {{ proveedor.proveedor }}</li>
-            {% endfor %}
-        </ul>
 
-        <hr>
-        {% endfor%}
-        
-</div>
-</body>
-</html>
+{% block contenido %}
+  {% for tabla in mostrartodosdatos %}
+    {% include 'muestratodos/contenido_muestraTodos.html' %}
+  {% empty %}
+    <h1>Lo sentimos pero no hay libros</h1>
+  {% endfor %}
+{% endblock %}

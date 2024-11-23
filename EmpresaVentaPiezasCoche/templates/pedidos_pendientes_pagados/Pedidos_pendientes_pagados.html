@@ -1,22 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pedidos_enviados_pagados</title>
-</head>
-<body>
-    <div>
-        <h4>Pedidos que están pendiente por enviar y están pagados </h4>
-       <ul>
-        {% for tablas in pedidosPendientesPagados %}
-            <li>Nombre del pedido: {{ tablas.pedido }}</li>
-            <li>Estado de pedido: {{ tablas.get_estado_display }}</li> <!-- Muestra el estado legible -->
-            <li>Método de pago: {{ tablas.metodo_pago.pagado}}</li> </li> 
-        {% endfor %}
-    </ul>
-
-        
-    </div>
-</body>
-</html>
+{% extends 'principal.html' %}
+{% block contenido %}
+  {% for tablas in pedidosPendientesPagados %}
+    {% include 'pedidos_pendientes_pagados/contenido_Pedidos_pendientes_pagados.html' %}
+  {% endfor %}
+{% endblock %}

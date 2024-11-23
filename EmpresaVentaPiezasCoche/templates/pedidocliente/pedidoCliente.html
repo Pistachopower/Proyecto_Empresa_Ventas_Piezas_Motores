@@ -1,24 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pedidos de los clientes</title>
-</head>
-<body>
-    <div>
-        <h4>Muestra los pedidos de los clientes</h4>
+{% extends "principal.html" %}
 
-        {% for pedClient in mostrar_pedido_cliente %}
-        
-        <ul>
-            <li>Nombre del cliente: {{ pedClient.cliente.cliente }}</li>
-            <li>Pedido del cliente: {{ pedClient.pedido }}</li>
-            <hr>
-        </ul>
+{% block contenido %}
+    
 
+    {% for pedClient in mostrar_pedido_cliente %}
+        {% include 'pedidocliente/contenido_pedidoCliente.html' %}
     {% endfor %}
- 
-    </div>
-</body>
-</html>
+{% endblock %}
+
+
+
+

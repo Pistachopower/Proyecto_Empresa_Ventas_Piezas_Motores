@@ -1,21 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detalle proveedor</title>
-</head>
-<body>
-    <div>
-        <h4>Proveedores que contienen  "{{ proveedor_nombre }}":</h4>
-        <ul>
-            {% for proveedor in proveedores %}
-                <li>Nombre del proveedor: {{ proveedor.proveedor }}</li>
-                <li>Teléfono: {{ proveedor.telefono }}</li>
-                <li>Dirección: {{ proveedor.direccion }}</li>
-                <hr>
-            {% endfor %}
-        </ul>
-    </div>
-</body>
-</html>
+{% extends "principal.html" %}
+
+
+{% block contenido %}
+    {% for proveedor in proveedores %}
+        {% include 're_path_proveedor/contenido_Detalle_proveedor.html' %}
+    {% endfor %}
+    
+{% endblock %}

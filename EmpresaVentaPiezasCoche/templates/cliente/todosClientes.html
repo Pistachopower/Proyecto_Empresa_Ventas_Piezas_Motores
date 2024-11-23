@@ -1,27 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pedido con cliente</title>
-</head>
-<body>
-    <div>
-        <h4>Muestra a todos los clientes</h4>
-        {% for cliente in mostrar_clientes %}
-        
-        <ul>
-            <li>Nombre del Cliente: {{ cliente.cliente }}</li>
-            <li>Apellido: {{ cliente.apellido }}</li>
-            <li>Correo: {{ cliente.correo }}</li>
-            <li>Tipo de cliente: {{ cliente.tipo_clientes }}</li>
-            <li>Dirección: {{ cliente.direccion }}</li>
-            
-            <hr>
-        </ul>
+{% extends 'principal.html' %}
 
-    {% endfor %}
- 
-    </div>
-</body>
-</html>
+{% block contenido %}
+<h4>Muestra a todos los clientes</h4>
+{% for cliente in mostrar_clientes %}
+  {% include 'cliente/contenido_todosClientes.html' %}
+{% endfor %}
+{% endblock %}

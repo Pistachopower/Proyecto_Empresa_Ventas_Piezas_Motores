@@ -1,25 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>clientepedidoinverso </title>
-</head>
-<body>
-    
-    <h4>cliente pedido inverso</h4> 
-    <ul>
-        
-            <li>Nombre del cliente: {{ clientepedidoinverso.cliente }}</li>
-            <ul>
-                <!--usas el relative name para acceder a los atributos de pedido y all-->
-                {% for p in clientepedidoinverso.pedido_cliente.all %}
-                <li>Nombre del pedido: {{ p.pedido }}</li>
-                {% empty %}
-                  <li>no hay informacion.</li>
-                {% endfor %}
-            </ul>
-    </ul>
+{% extends 'principal.html' %}
 
-</body>
-</html>
+{% block contenido %}
+{% comment %}
+  usas el relative name para acceder a los atributos de pedido y all
+{% endcomment %}
+  {% for p in clientepedidoinverso.pedido_cliente.all %}
+    {% include 'clientepedidoinverso/contenido_clientepedidoinverso.html' %}
+  {% empty %}
+    <li>no hay informacion.</li>
+  {% endfor %}
+{% endblock %}

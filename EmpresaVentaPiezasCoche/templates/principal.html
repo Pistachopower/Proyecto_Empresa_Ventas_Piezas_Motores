@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{% load static %} <!-- ESTA ETIQUETA SIEMPRE TIENE QUE CARGARSE -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Principal</title>
+    {% block link_css %}
+    {% endblock %}
+    <link rel="stylesheet" href="{% static 'css/menu.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/pie.css' %}" />
+  </head>
+  <body>
+    {% comment %}texto
+    <img src="{% static 'imagenes/logo_Gestion_Tarea.png' %}" alt="Imagen de Django" style="height: 80px;" />
+    {% endcomment %}
+
+    <!-- Include: añade la plantilla menu -->
+    {% include 'Estructura/menu.html' %}
+
+    {% block cabecera %}
+
+    {% endblock %}
+
+    {% block contenido %}
+      <!-- El contenido específico de cada página va aquí -->
+    {% endblock %}
+
+    <!-- Include: añade la plantilla del pie -->
+    {% include 'Estructura/pie.html' %}
+  </body>
+</html>
