@@ -1,6 +1,4 @@
 # Proyecto de Gestión de Pedidos de Piezas de Motor
-# Proyecto de Templates y Filtros en Django
-
 Este proyecto contiene ejemplos de diferentes **template tags**, **operadores**, **formato de fechas** y **template filters** usados en Django para manejar datos en plantillas. A continuación se detallan los diferentes tipos utilizados en el proyecto:
 
 ## Template Tags
