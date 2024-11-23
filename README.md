@@ -19,7 +19,7 @@ Ejemplos de diferentes **template tags**, **operadores**, **formato de fechas** 
    - **Utilidad:** Si hay un cliente que se relaciona con un empleado, mostrará el nombre del empleado.  
    - **Etiqueta:**  
      ```html
-     {% if cliente.empleado %}
+     {% if cliente.empleado %} {% endif %}
      ```
 
 3. **for empty**  
@@ -55,7 +55,7 @@ Ejemplos de diferentes **template tags**, **operadores**, **formato de fechas** 
    - **Condición:** Si `minimo` es negativo no muestra el resultado.  
    - **Ejemplo:**  
      ```html
-     {% if minimo < 0 %}
+     {% if minimo < 0 %} {% endif %}
      ```
 
 2. **==**  
@@ -63,7 +63,7 @@ Ejemplos de diferentes **template tags**, **operadores**, **formato de fechas** 
    - **Condición:** Si el cliente es igual a una 'E'.  
    - **Ejemplo:**  
      ```html
-     {% if cliente.tipo_clientes == 'E' %}
+     {% if cliente.tipo_clientes == 'E' %} {% endif %}
      ```
 
 3. **>**  
@@ -71,7 +71,7 @@ Ejemplos de diferentes **template tags**, **operadores**, **formato de fechas** 
    - **Condición:** Si la media es mayor que 0.  
    - **Ejemplo:**  
      ```html
-     {% if media > 0 %}
+     {% if media > 0 %} {% endif %}
      ```
 
 4. **>=**  
@@ -79,7 +79,7 @@ Ejemplos de diferentes **template tags**, **operadores**, **formato de fechas** 
    - **Condición:** Si el ID del cliente es mayor o igual a 4.  
    - **Ejemplo:**  
      ```html
-     {% if cliente.id >= 4 %}
+     {% if cliente.id >= 4 %} {% endif %}
      ```
 
 5. **<=**  
@@ -87,7 +87,7 @@ Ejemplos de diferentes **template tags**, **operadores**, **formato de fechas** 
    - **Condición:** Si el ID del cliente es menor o igual a 2.  
    - **Ejemplo:**  
      ```html
-     <li>id cliente {{ tablas.cliente_id <= 5}}</li>
+     <li>id cliente {% if tablas.cliente_id <= 2 %} </li> {% endif %}
      ```
 
 ## Formato Correcto de Fechas
