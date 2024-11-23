@@ -1,5 +1,8 @@
 # Proyecto de Gestión de Pedidos de Piezas de Motor
-Este proyecto contiene ejemplos de diferentes **template tags**, **operadores**, **formato de fechas** y **template filters** usados en Django para manejar datos en plantillas. A continuación se detallan los diferentes tipos utilizados en el proyecto:
+
+Este proyecto implementa una base de datos para gestionar pedidos de piezas de motor, con funcionalidades para administrar clientes, empleados, proveedores, métodos de pago, y piezas de motor. El sistema permite realizar consultas avanzadas a través de diferentes vistas y URLs, optimizadas para un rendimiento eficiente en Django.
+
+Ejemplos de diferentes **template tags**, **operadores**, **formato de fechas** y **template filters** usados en Django para manejar datos en plantillas. A continuación se detallan los diferentes tipos utilizados en el proyecto:
 
 ## Template Tags
 
@@ -52,7 +55,7 @@ Este proyecto contiene ejemplos de diferentes **template tags**, **operadores**,
    - **Condición:** Si `minimo` es negativo no muestra el resultado.  
    - **Ejemplo:**  
      ```html
-     {% if minimo > 0 %}
+     {% if minimo < 0 %}
      ```
 
 2. **==**  
@@ -84,7 +87,7 @@ Este proyecto contiene ejemplos de diferentes **template tags**, **operadores**,
    - **Condición:** Si el ID del cliente es menor o igual a 2.  
    - **Ejemplo:**  
      ```html
-     <li>id cliente {{ tablas.cliente_id}}</li>
+     <li>id cliente {{ tablas.cliente_id <= 5}}</li>
      ```
 
 ## Formato Correcto de Fechas
@@ -189,12 +192,6 @@ Este proyecto contiene ejemplos de diferentes **template tags**, **operadores**,
       <p>¿La media es divisible entre 2? {{ media|divisibleby:2 }}</p>
       ```
 
-
-
-
-
-
-Este proyecto implementa una base de datos para gestionar pedidos de piezas de motor, con funcionalidades para administrar clientes, empleados, proveedores, métodos de pago, y piezas de motor. El sistema permite realizar consultas avanzadas a través de diferentes vistas y URLs, optimizadas para un rendimiento eficiente en Django.
 
 ## Descripción de la Base de Datos
 
