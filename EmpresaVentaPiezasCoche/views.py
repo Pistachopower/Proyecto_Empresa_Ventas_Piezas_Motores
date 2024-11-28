@@ -1,9 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.db.models import Q  #Q: para trabajar con condiciones OR
 from django.db.models import Avg, Max, Min, Prefetch
 from django.views.defaults import page_not_found
 from .models import Pedido, MetodoPago, Cliente, Empleado, PiezaMotor_Pedido, PiezaMotor, Proveedor
-
+from .forms import ProveedorForm #esto es para los formulario
 
 #esta sera la vista principal que muestra 
 #todas las url o informacion de los modelos
@@ -132,6 +132,18 @@ def mi_error_403(request, exception=None):
 def mi_error_500(request):
     return render(request, 'errores/500.html', status=500)
 
+
+#codigo de formulario 
+def crear_proveedor(request):
+    if request.method == 'POST':
+        form = ProveedorForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('proveedor/crear/')  # Cambiar por la URL de listado si ya existe
+    else:
+        form = ProveedorForm()
+
+    return render(request, 'fomularios/crear_proveedor.html', {'form': form})
 
 
 

@@ -17,7 +17,10 @@ urlpatterns = [
     path('mediamaxminpedidos', views.mediamaxminpedidos, name='mediamaxminpedidos'), #name= hace referencia al nombre de mi funcion 
     path('clientepedidoinverso/<int:id_cliente>', views.clientepedidoinverso, name='clientepedidoinverso'),
     path('metodopagolimite', views.limite_metodo_pago, name='limite_metodoP'),
-    path('piezasMotor_pedidos_nulo', views.piezasMotor_pedidos_nulo, name='piezasMotor_pedidos_nulo')
+    path('piezasMotor_pedidos_nulo', views.piezasMotor_pedidos_nulo, name='piezasMotor_pedidos_nulo'),
     
+    
+    #agregamos las vistas de los formularios
+    path('proveedor/crear/', views.crear_proveedor, name='crear_proveedor'),
     
 ]
