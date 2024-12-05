@@ -1,40 +1,4 @@
 {% comment %} 
-<li>
-  <a href="{% url 'mostrar_clientes' %}">Muestra a todos los clientes</a>
-</li> <li>
-  <a href="{% url 'mostrar_pedidocliente' %}">Muestra los pedidos de los clientes</a>
-</li> <li>
-  <a href="{% url 'mostrartodosdatos' %}">Muestra al menos un dato de todas las tablas</a>
-</li> <li>
-  <a href="{% url 'empleadoatiendecliente' '1' %}">Clientes que han sido atendidos por un empleado en particular</a>
-</li> <li>
-  <a href="{% url 'pedidosPendientesPagados' 'P' 'p' %}">Pedidos que están pendiente por enviar y están pagados</a>
-</li> <li>
-  <a href="{% url 'mostrar_proveedorpiezamotor' 'a' %}">Muestra las piezas que ha suministrado un proveedor</a>
-</li> <!-- se pone "a" porque es un caracter comun que aparece en los seeder --> <li>
-  <a href="{% url 'detalle_proveedor' 'A' %}">Muestra el nombre y sus atributos del proveedor cumpliendo el re_Path</a>
-</li> <li>
-  <a href="{% url 'anioMes_empleado' '2001' '11' %}">filtra los clientes basándose en el año y mes de contratación del empleado</a>
-</li> <li>
-  <a href="{% url 'pedidos_estados' 'ENV' %}">Muestra los pedidos que están enviados, pendientes o entregados ordenados por fecha descendente</a>
-</li> <li>
-  <a href="{% url 'mediamaxminpedidos' %}">Muestra la media, el maximo y minino de los pedidos</a>
-</li> <li>
-  <a href="{% url 'clientepedidoinverso' '2' %}">Cliente pedido inverso</a>
-</li> <li>
-  <a href="{% url 'limite_metodoP' %}">Muestra 2 nombres de la vista metodo pago</a>
-</li> <li>
-  <a href="{% url 'piezasMotor_pedidos_nulo' %}">vista de los pedidos y las piezas que la cantidad es nula</a>
-</li>
-
-{% endcomment %}
-
-
-
-{% comment %} <h1>Gestion de tareas</h1>{% endcomment %}
-
-{% load static %}
-
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="{% url 'index' %}">
         <img src="{% static 'imagenes/LogoEmpresa.png' %}" alt="Logo" width="80" height="80" class="d-inline-block align-top">
@@ -86,3 +50,52 @@
         </ul>
     </div>
 </nav>
+
+{% comment %} <h1>Gestion de tareas</h1>{% endcomment %}
+
+{% load static %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-danger px-4">
+  <a class="navbar-brand" href="#">
+    <img src="{% static  'imagenes/LogoEmpresa.png' %}" 
+        alt="" width="100" height="50" 
+        class="d-inline-block align-text-middle">
+  </a>
+  <button class="navbar-toggler" type="button" 
+    data-bs-toggle="collapse" 
+    data-bs-target="#accionesBiblioteca" 
+    aria-controls="navbarAccionesBiblioteca" 
+    aria-expanded="false" 
+    aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="accionesBiblioteca">
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Inicio</a>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" 
+            id="accionesLibrosLink" 
+            role="button" 
+            data-bs-toggle="dropdown" 
+            aria-expanded="false">
+          Tablas
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="accionesLibrosLink">
+          <li><a class="dropdown-item" href="{% url 'mostrar_clientes' %}">mostrar_clientes</a></li>
+          <li><a class="dropdown-item" href="{% url 'mostrartodosdatos' %}">mostrar todos los datos</a></li>
+          <li><a class="dropdown-item" href="{% url 'mostrar_pedidocliente'%}">Busqueda Avanzada de Libro</a></li>
+        </ul>
+      </li>
+    </ul>
+    
+    <form action="{% url 'mostrar_clientes' %}" class="d-flex mt-3" role="search" method="GET">
+      <input name="textoBusqueda" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-light btn-outline-dark" type="submit">Search</button>
+    </form>
+
+  </div>
+</nav>
+
+

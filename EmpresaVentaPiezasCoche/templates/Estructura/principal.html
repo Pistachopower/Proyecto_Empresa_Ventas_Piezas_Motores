@@ -5,28 +5,34 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Principal</title>
-    {% block link_css %}
+
+    <!-- estas etiquetas van a aplicar el estilo de bootstrap_css -->
+    {% load static %}
+    {% load django_bootstrap5 %}
+    {% bootstrap_css %}
+
+    <!-- pendiente por implementar -->
+    {% block cabecera_extra %}
+
     {% endblock %}
-    <link rel="stylesheet" href="{% static 'css/menu.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/pie.css' %}" />
   </head>
+
   <body>
-    {% comment %}texto
-    <img src="{% static 'imagenes/logo_Gestion_Tarea.png' %}" alt="Imagen de Django" style="height: 80px;" />
+    {% comment %}
     {% endcomment %}
 
     <!-- Include: añade la plantilla menu -->
     {% include 'Estructura/menu.html' %}
 
-    {% block cabecera %}
+    <div class="container p-2">
+      {% block contenido %}
 
-    {% endblock %}
+      {% endblock %}
+    </div>
 
-    {% block contenido %}
-      <!-- El contenido específico de cada página va aquí -->
-    {% endblock %}
 
     <!-- Include: añade la plantilla del pie -->
     {% include 'Estructura/pie.html' %}
+    {% bootstrap_javascript %}
   </body>
 </html>

@@ -1,30 +1,16 @@
-{% extends 'principal.html' %} <!-- hereda de principal.html -->
-
-{% load static %} <!-- carga los archivos estaticos -->
-{% block link_css %}
-  <link rel="stylesheet" href="{% static 'css/menu.css' %}" />
-{% endblock %}
-
-{% block cabecera %}
-
-{% endblock %}
+{% extends 'Estructura/principal.html' %} <!-- hereda de principal.html -->
 
 {% block contenido %}
+{% load static %}
   <h4>Bienvenido a MotorPart Express</h4>
 
-  <ul>
-      <li><a href="{% url 'mostrar_clientes' %}">Muestra a todos los clientes</a></li>
-      <li><a href="{% url 'mostrar_pedidocliente' %}">Muestra los pedidos de los clientes</a></li>
-      <li><a href="{% url 'mostrartodosdatos' %}">Muestra al menos un dato de todas las tablas</a></li>
-      <li><a href="{% url 'empleadoatiendecliente' '1' %}">Clientes que han sido atendidos por un empleado en particular</a></li>
-      <li><a href="{% url 'pedidosPendientesPagados' 'P' 'p' %}">Pedidos que están pendiente por enviar y están pagados</a></li>
-      <li><a href="{% url 'mostrar_proveedorpiezamotor' 'a'%}">Muestra las piezas que ha suministrado un proveedor</a></li> <!--se pone "a" porque es un caracter comun que aparece en los seeder-->
-      <li><a href="{% url 'detalle_proveedor' 'A' %}">Muestra el nombre y sus atributos del proveedor cumpliendo el re_Path</a></li>
-      <li><a href="{% url 'anioMes_empleado' '2001' '11' %}">filtra los clientes basándose en el año y mes de contratación del empleado</a></li>
-      <li><a href="{% url 'pedidos_estados' 'ENV' %}">Muestra los pedidos que están enviados, pendientes o entregados ordenados por fecha descendente</a></li>
-      <li><a href="{% url 'mediamaxminpedidos' %}">Muestra la media, el maximo y minino de los pedidos</a></li>
-      <li><a href="{% url 'clientepedidoinverso' '2' %}">Cliente pedido inverso</a></li>
-      <li><a href="{% url 'limite_metodoP' %}">Muestra 2 nombres de la vista metodo pago</a></li>
-      <li><a href="{% url 'piezasMotor_pedidos_nulo' %}">vista de los pedidos y las piezas que la cantidad es nula</a></li>
-  </ul>
+
+  <div class="row">
+    <div class="col-md-12">
+        <img src="{% static  'imagenes/LogoEmpresa.png' %}" 
+        alt="MotorPart Express" 
+        class="img-fluid mx-auto mx-auto d-block">
+    </div>
+</div>
+
 {% endblock %}
