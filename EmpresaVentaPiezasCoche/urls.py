@@ -2,6 +2,9 @@ from django.urls import path, re_path #importamos re_path para usar expresiones 
 from .import views #aqui le estamos diciendo que de mi carpeta 
 #principal me importe las vistas en el fichero view
 
+from .views import ProveedorCreateView #importamos la vista ProveedorCreateView 
+from .views import proveedor_buscar_avanzado
+
 urlpatterns = [
     path('', views.index, name='index'),
     path('todosclientes', views.mostrar_clientes, name='mostrar_clientes'),
@@ -21,6 +24,8 @@ urlpatterns = [
     
     
     #agregamos las vistas de los formularios
-    path('proveedor/crear/', views.crear_proveedor, name='crear_proveedor'),
     
+    path('proveedores/crear/', ProveedorCreateView.as_view(), name='crear_proveedor'), # Ruta para la creación de proveedores
+    path('proveedores/buscar_avanzado/', proveedor_buscar_avanzado, name='proveedor_buscar_avanzado'),
+
 ]

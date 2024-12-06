@@ -1,0 +1,82 @@
+{% extends "Estructura/principal.html" %}
+
+{% block contenido %}
+
+{% load django_bootstrap5 %}
+
+<h2>Registrar Nuevo Proveedor</h2>
+<form method="post">
+    <!--template tag para la seguridad de los formularios-->
+    {% csrf_token %} 
+
+    <div class="mb-4">
+        <label for="{{ form.proveedor.id_for_label }}" class="form-label">{{ form.proveedor.label }}: </label>
+        <input name="{{ form.proveedor.html_name }}" 
+               type="text" 
+               class="form-control {% if form.proveedor.errors %} is-invalid{% elif form.is_bound %} is-valid{% endif %}" 
+               id="{{ form.proveedor.id_for_label }}"
+               maxlength="{{ form.proveedor.field.max_length }}"
+               {% if form.proveedor.field.required %}
+                   required
+               {% endif %}
+               value="{% if form.is_bound %}{{ form.proveedor.value }}{% endif %}"
+        />
+        {% if form.proveedor.help_text %}
+        <div class="form-text">
+            {{ form.proveedor.help_text }}
+        </div>
+        {% endif %}
+        <div class="invalid-feedback">
+            {% for error in form.proveedor.errors %} 
+                {{ error }}
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="mb-4">
+        <label for="{{ form.telefono.id_for_label }}" class="form-label">{{ form.telefono.label }}: </label>
+        <input name="{{ form.telefono.html_name }}" 
+               type="text" 
+               class="form-control {% if form.telefono.errors %} is-invalid{% elif form.is_bound %} is-valid{% endif %}" 
+               id="{{ form.telefono.id_for_label }}"
+        />
+        <div class="invalid-feedback">
+            {% for error in form.telefono.errors %} 
+                {{ error }}
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="mb-4">
+        <label for="{{ form.correo.id_for_label }}" class="form-label">{{ form.correo.label }}: </label>
+        <input name="{{ form.correo.html_name }}" 
+               type="email" 
+               class="form-control {% if form.correo.errors %} is-invalid{% elif form.is_bound %} is-valid{% endif %}" 
+               id="{{ form.correo.id_for_label }}"
+               required
+        />
+        <div class="invalid-feedback">
+            {% for error in form.correo.errors %} 
+                {{ error }}
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="mb-4">
+        <label for="{{ form.direccion.id_for_label }}" class="form-label">{{ form.direccion.label }}: </label>
+        <textarea name="{{ form.direccion.html_name }}" 
+                  class="form-control {% if form.direccion.errors %} is-invalid{% elif form.is_bound %} is-valid{% endif %}" 
+                  id="{{ form.direccion.id_for_label }}"
+                  rows="3">{% if form.is_bound %}{{ form.direccion.value }}{% endif %}</textarea>
+        <div class="invalid-feedback">
+            {% for error in form.direccion.errors %} 
+                {{ error }}
+            {% endfor %}
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Guardar</button>
+
+</form>
+
+{% endblock %}

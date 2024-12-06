@@ -3,7 +3,14 @@ from django.db.models import Q  #Q: para trabajar con condiciones OR
 from django.db.models import Avg, Max, Min, Prefetch
 from django.views.defaults import page_not_found
 from .models import Pedido, MetodoPago, Cliente, Empleado, PiezaMotor_Pedido, PiezaMotor, Proveedor
-from .forms import ProveedorForm #esto es para los formulario
+from .forms import BusquedaAvanzadaProveedorForm
+
+# Importamos las clases necesarias de Django
+from django.views.generic.edit import CreateView
+from .models import Proveedor  # Asegúrate de que el modelo Proveedor esté importado
+from .forms import ProveedorModelForm  # Importamos el formulario que hemos creado
+from django.urls import reverse_lazy  # Importamos reverse_lazy para redirigir después de crear el proveedor
+
 
 #esta sera la vista principal que muestra 
 #todas las url o informacion de los modelos
@@ -133,17 +140,53 @@ def mi_error_500(request):
     return render(request, 'errores/500.html', status=500)
 
 
-#codigo de formulario 
-def crear_proveedor(request):
-    if request.method == 'POST':
-        form = ProveedorForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('proveedor/crear/')  # Cambiar por la URL de listado si ya existe
+
+
+# Definimos una vista basada en clase para crear un nuevo proveedor
+class ProveedorCreateView(CreateView):
+    model = Proveedor  # Especificamos que esta vista está asociada al modelo Proveedor
+    form_class = ProveedorModelForm  # Indicamos que usaremos el formulario ProveedorModelForm para manejar los datos
+    template_name = "formularios/crear_proveedor.html"  # Especificamos la plantilla que se usará para renderizar el formulario
+
+    # URL a la que se redirigirá después de que el formulario se haya enviado correctamente
+    success_url = reverse_lazy('crear_proveedor')  # Cambia por el nombre de tu vista de lista
+    
+
+
+
+
+def proveedor_buscar_avanzado(request):
+    if request.method == 'GET':
+        formulario = BusquedaAvanzadaProveedorForm(request.GET)
+        if formulario.is_valid():
+            # Inicializamos la consulta de proveedores
+            qs_proveedores = Proveedor.objects.all()
+            
+            # Obtenemos los filtros
+            nombre_proveedor = formulario.cleaned_data.get('nombre_proveedor')
+            correo = formulario.cleaned_data.get('correo')
+            telefono = formulario.cleaned_data.get('telefono')
+
+            # Filtramos por nombre del proveedor
+            if nombre_proveedor:
+                qs_proveedores = qs_proveedores.filter(proveedor__icontains=nombre_proveedor)
+
+            # Filtramos por correo
+            if correo:
+                qs_proveedores = qs_proveedores.filter(correo__icontains=correo)
+
+            # Filtramos por teléfono
+            if telefono:
+                qs_proveedores = qs_proveedores.filter(telefono__icontains=telefono)
+
+            # Obtenemos los proveedores filtrados
+            proveedores = qs_proveedores.all()
+
+            return render(request, 'formularios/busqueda_avanzada.html', {
+                "proveedores_mostrar": proveedores,
+                "formulario": formulario
+            })
     else:
-        form = ProveedorForm()
+        formulario = BusquedaAvanzadaProveedorForm()
 
-    return render(request, 'fomularios/crear_proveedor.html', {'form': form})
-
-
-
+    return render(request, 'formularios/busqueda_avanzada.html', {"formulario": formulario})

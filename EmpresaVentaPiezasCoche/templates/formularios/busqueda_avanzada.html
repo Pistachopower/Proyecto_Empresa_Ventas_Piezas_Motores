@@ -1,0 +1,38 @@
+<!-- busqueda_avanzada.html -->
+{% extends "Estructura/principal.html" %}
+
+{% block contenido %}
+    <h2>Búsqueda Avanzada de Proveedores</h2>
+    <form action="{% url 'proveedor_buscar_avanzado' %}" method="GET">
+        {% csrf_token %}
+        
+        <div class="mb-4">
+            {{ formulario.nombre_proveedor.label_tag }}
+            {{ formulario.nombre_proveedor }}
+            {{ formulario.nombre_proveedor.errors }}
+        </div>
+
+        <div class="mb-4">
+            {{ formulario.correo.label_tag }}
+            {{ formulario.correo }}
+            {{ formulario.correo.errors }}
+        </div>
+
+        <div class="mb-4">
+            {{ formulario.telefono.label_tag }}
+            {{ formulario.telefono }}
+            {{ formulario.telefono.errors }}
+        </div>
+
+        <button type="submit" class="btn btn-primary">Buscar</button>
+    </form>
+
+    {% if proveedores_mostrar %}
+        <h3>Resultados de la Búsqueda:</h3>
+        <ul>
+            {% for proveedor in proveedores_mostrar %}
+                <li>{{ proveedor.proveedor }} - {{ proveedor.correo }} - {{ proveedor.telefono }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endblock %}
