@@ -1,57 +1,4 @@
-{% comment %} 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="{% url 'index' %}">
-        <img src="{% static 'imagenes/LogoEmpresa.png' %}" alt="Logo" width="80" height="80" class="d-inline-block align-top">
 
-    </a>
-
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'mostrar_clientes' %}">Muestra a todos los clientes</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'mostrar_pedidocliente' %}">Muestra los pedidos de los clientes</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'mostrartodosdatos' %}">Muestra al menos un dato de todas las tablas</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'empleadoatiendecliente' '1' %}">Clientes que han sido atendidos por un empleado en particular</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'pedidosPendientesPagados' 'P' 'p' %}">Pedidos que están pendiente por enviar y están pagados</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'mostrar_proveedorpiezamotor' 'a' %}">Muestra las piezas que ha suministrado un proveedor</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'detalle_proveedor' 'A' %}">Muestra el nombre y sus atributos del proveedor cumpliendo el re_Path</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'anioMes_empleado' '2001' '11' %}">Filtra los clientes basándose en el año y mes de contratación del empleado</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'pedidos_estados' 'ENV' %}">Muestra los pedidos que están enviados, pendientes o entregados ordenados por fecha descendente</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'mediamaxminpedidos' %}">Muestra la media, el máximo y mínimo de los pedidos</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'clientepedidoinverso' '2' %}">Cliente pedido inverso</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'limite_metodoP' %}">Muestra 2 nombres de la vista método pago</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'piezasMotor_pedidos_nulo' %}">Vista de los pedidos y las piezas que la cantidad es nula</a>
-            </li>
-
-        </ul>
-    </div>
-</nav>
-
-{% comment %} <h1>Gestion de tareas</h1>{% endcomment %}
 
 {% load static %}
 <nav class="navbar navbar-expand-lg navbar-dark bg-danger px-4">
@@ -83,16 +30,15 @@
           Tablas
         </a>
         <ul class="dropdown-menu" aria-labelledby="accionesLibrosLink">
-          <li><a class="dropdown-item" href="{% url 'mostrar_clientes' %}">mostrar_clientes</a></li>
-          <li><a class="dropdown-item" href="{% url 'mostrartodosdatos' %}">mostrar todos los datos</a></li>
-          <li><a class="dropdown-item" href="{% url 'mostrar_pedidocliente'%}">Busqueda Avanzada de Libro</a></li>
+          
         </ul>
       </li>
     </ul>
     
-    <form action="{% url 'mostrar_clientes' %}" class="d-flex mt-3" role="search" method="GET">
+    <!--busqueda generica-->
+    <form action="" class="d-flex mt-3" role="search" method="GET">
       <input name="textoBusqueda" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-light btn-outline-dark" type="submit">Search</button>
+      <button class="btn btn-light btn-outline-dark" type="submit">Búsqueda</button>
     </form>
 
   </div>

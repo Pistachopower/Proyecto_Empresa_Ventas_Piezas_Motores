@@ -1,0 +1,48 @@
+{% extends "Estructura/principal.html" %}
+
+{% block contenido %}
+<br>
+<h4>Lista de proveedores</h4>
+
+
+<!-- Muestra todos los proveedores  -->
+{% for proveedor in proveedores_lista %}
+<div class="card mb-3">
+    <div class="card-body">
+        <!-- Título con el nombre del proveedor -->
+        <h5 class="card-title">Nombre del proveedor: {{ proveedor.proveedor|capfirst }}</h5>   
+
+        <!-- información -->
+
+        <p class="card-text">Teléfono: {{ proveedor.telefono }}</p>
+        <p class="card-text">Correo: {{ proveedor.correo }}</p>
+        <p class="card-text">Dirección: {{ proveedor.direccion }}</p>
+
+        <!-- Botones de acción -->
+        {% load bootstrap_icons %}
+        <div class="row btn-group">
+            <!-- Botón de editar -->
+            <div class="mb-2">
+                <a href="" class="btn btn-outline-primary">
+                    <span>{% bs_icon 'pencil' %}</span> Editar
+                </a>
+            </div>
+            <!-- Botón de eliminar -->
+            <div class="mb-2">
+                <form action="{% url 'proveedor_eliminar' proveedor.id %}" method="post">
+                    {% csrf_token %}
+                    <!--confirmacion de eliminar con return confirm('¿Estás seguro de eliminar este proveedor?'); -->
+                    <button class="btn btn-danger" onclick="return confirm('¿Estás seguro de eliminar este proveedor?');" type="submit">
+                        <span>{% bs_icon 'trash' %}</span> Eliminar
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% empty %}
+<!-- Mensaje si no hay proveedores -->
+<p>No hay información de proveedores.</p>
+{% endfor %}
+
+{% endblock %}

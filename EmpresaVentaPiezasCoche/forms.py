@@ -5,6 +5,9 @@ from .models import Proveedor  # Asegúrate de que el modelo Proveedor esté imp
 
 #crear un proveedor
 # Definimos un formulario basado en el modelo Proveedor
+""""
+
+
 class ProveedorModelForm(ModelForm):
     # Clase interna Meta para definir configuraciones del formulario
     class Meta:
@@ -67,4 +70,51 @@ class BusquedaAvanzadaProveedorForm(forms.Form):
         if not nombre_proveedor and not correo and not telefono:
             self.add_error(None, 'Debe introducir al menos un valor en un campo del formulario')
 
+        return self.cleaned_data
+        
+"""
+
+class ProveedorModelForm(ModelForm):   
+    class Meta:
+
+        model = Proveedor
+        fields = ['proveedor','telefono','correo','direccion']
+        labels = {
+            "proveedor": ("Nombre del proveedor hola"),
+        }
+        help_texts = {
+            "proveedor": ("200 caracteres como máximo"),
+           
+        }
+        #
+        #widgets = {
+        #    "fecha_publicacion":forms.DateInput(format="%Y-%m-%d", attrs={"type": "date"}),
+        #}
+        #localized_fields = ["fecha_publicacion"]
+    
+    
+    def clean(self):
+ 
+        #Validamos con el modelo actual
+        super().clean()
+        
+        #Obtenemos los campos 
+        proveedor = self.cleaned_data.get('proveedor')
+        telefono = self.cleaned_data.get('telefono')
+        correo = self.cleaned_data.get('correo')
+        direccion = self.cleaned_data.get('direccion')
+      
+ 
+        #Comprobamos que no exista un proveedor con ese nombre
+        proveedorNombre = Proveedor.objects.filter(proveedor=proveedor).first()
+        if(not proveedorNombre is None
+           ):
+             if(not self.instance is None and proveedorNombre.id == self.instance.id):
+                 pass
+             else:
+                self.add_error('proveedor','Ya existe un proveedor con ese nombre')
+
+
+                
+        #Siempre devolvemos el conjunto de datos.
         return self.cleaned_data

@@ -3,8 +3,17 @@
 {% block contenido %}
 {% load static %}
   <h4>Bienvenido a MotorPart Express</h4>
+  
+  <ul>
+    <li>
+      <a href="{% url 'proveedores_create' %}">Crear un proveedor</a>
+    </li>
+    <li>
+      <a href="{% url 'proveedores_lista' %}">Mostrar todos los proyectos</a>
+    </li>
+  </ul>
 
-
+<!--logo empresa
   <div class="row">
     <div class="col-md-12">
         <img src="{% static  'imagenes/LogoEmpresa.png' %}" 
@@ -12,5 +21,7 @@
         class="img-fluid mx-auto mx-auto d-block">
     </div>
 </div>
+-->
+
 
 {% endblock %}

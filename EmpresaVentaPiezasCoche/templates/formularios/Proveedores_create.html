@@ -10,7 +10,7 @@
     {% csrf_token %} 
 
     <div class="mb-4">
-        <label for="{{ form.proveedor.id_for_label }}" class="form-label">{{ form.proveedor.label }}: </label>
+        <label for="{{ form.proveedor.id_for_label }}" class="form-label">{{ form.proveedor.label }}Nombre proveedor: </label>
         <input name="{{ form.proveedor.html_name }}" 
                type="text" 
                class="form-control {% if form.proveedor.errors %} is-invalid{% elif form.is_bound %} is-valid{% endif %}" 
@@ -26,15 +26,11 @@
             {{ form.proveedor.help_text }}
         </div>
         {% endif %}
-        <div class="invalid-feedback">
-            {% for error in form.proveedor.errors %} 
-                {{ error }}
-            {% endfor %}
-        </div>
+
     </div>
 
     <div class="mb-4">
-        <label for="{{ form.telefono.id_for_label }}" class="form-label">{{ form.telefono.label }}: </label>
+        <label for="{{ form.telefono.id_for_label }}" class="form-label">{{ form.telefono.label }}Teléfono: </label>
         <input name="{{ form.telefono.html_name }}" 
                type="text" 
                class="form-control {% if form.telefono.errors %} is-invalid{% elif form.is_bound %} is-valid{% endif %}" 
@@ -48,7 +44,7 @@
     </div>
 
     <div class="mb-4">
-        <label for="{{ form.correo.id_for_label }}" class="form-label">{{ form.correo.label }}: </label>
+        <label for="{{ form.correo.id_for_label }}" class="form-label">{{ form.correo.label }}Correo: </label>
         <input name="{{ form.correo.html_name }}" 
                type="email" 
                class="form-control {% if form.correo.errors %} is-invalid{% elif form.is_bound %} is-valid{% endif %}" 
@@ -63,7 +59,7 @@
     </div>
 
     <div class="mb-4">
-        <label for="{{ form.direccion.id_for_label }}" class="form-label">{{ form.direccion.label }}: </label>
+        <label for="{{ form.direccion.id_for_label }}" class="form-label">{{ form.direccion.label }}Dirección: </label>
         <textarea name="{{ form.direccion.html_name }}" 
                   class="form-control {% if form.direccion.errors %} is-invalid{% elif form.is_bound %} is-valid{% endif %}" 
                   id="{{ form.direccion.id_for_label }}"

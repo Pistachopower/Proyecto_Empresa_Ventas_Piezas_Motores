@@ -1,8 +1,0 @@
-{% extends 'principal.html' %}
-
-{% block contenido %}
-<h4>Muestra a todos los clientes</h4>
-{% for cliente in mostrar_clientes %}
-  {% include 'cliente/contenido_todosClientes.html' %}
-{% endfor %}
-{% endblock %}
